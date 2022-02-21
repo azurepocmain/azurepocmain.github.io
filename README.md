@@ -1,2 +1,2 @@
 # azurepocmain.github.io
-Synapse Troubleshooting Workflow 
+Synapse Troubleshooting Workflow Website
