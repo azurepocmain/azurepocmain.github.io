@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="en">
+ <head>
+ <meta charset="utf-8" />
+ <title>Synapse Query Inflight SQL</title>
+ <link rel="icon" href="articles/Azure-Synapse-Analytics.svg" type="image/x-icon" >
+ 
+<style> 
+
+p.issue1 {
+   width: 300px;
+    height: 100px;
+    border: 5px solid gray; 
+	 text-align: center;
+	
+}
+
+p.issue2 {
+    white-space: nowrap; 
+    width: 200px; 
+    border: 1px solid #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+	
+	body{
+	background-color: #FFF;	
+	-moz-box-shadow: 0 0 5px 5px #333;
+	-webkit-box-shadow: 0 0 5px 5px #333;
+	box-shadow: 0 0 5px 5px #333;
+	
+	height:2200px;	
+	width: 1790px;
+	top:10px;
+  	
+	padding-bottom:30px;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.main{
+	background-color: #FFF;	
+	
+	width:800px;
+	height:990px;
+	margin-left:20px;
+	margin-top:25px;
+	padding:20px 0 0 0;
+	position: relative;
+	-moz-box-shadow: 2px 10px 10px 5px #888;
+	-webkit-box-shadow: 2px 10px 10px 5px #888;
+	box-shadow: 2px 10px 10px 5px #888;
+
+}
+html {
+		
+		height:1400px;
+		background: rgb(0, 0, 0); /* for non-css3 browsers */
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF', endColorstr='#FFF'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0)), to(rgb(0, 0, 0))); /* for webkit browsers */
+background: -moz-linear-gradient(top,  rgb(5, 5, 5),  rgb(0, 0, 0)); /* for firefox 3.6+ */ 
+} 
+
+#floats{
+	position:relative;
+	width:420px;
+	background-color: #FFF;
+	height:105px;
+	line-height:15px;	
+	margin:40px 0 0 35px;
+	float:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(225,225,225,1) 37%, rgba(241,241,241,1) 50%, rgba(246,246,246,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(37%,rgba(225,225,225,1)), color-stop(50%,rgba(241,241,241,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(225,225,225,1) 37%,rgba(241,241,241,1) 50%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(225,225,225,1) 37%,rgba(241,241,241,1) 50%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(225,225,225,1) 37%,rgba(241,241,241,1) 50%,rgba(246,246,246,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(225,225,225,1) 37%,rgba(241,241,241,1) 50%,rgba(246,246,246,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+}
+
+h3{
+		
+		font-family: Arial, Helvetica, sans-serif;
+	font-size: 27px;
+	text-decoration: underline;
+	text-align: center;
+	color:#000;
+	text-decoration:none;}
+
+
+#issues a:link{
+	ccolor: #000;
+text-decoration: none;
+
+}
+#issues1 a:link{
+	color: #000;
+text-decoration: none;
+
+}
+#issues2 a:link{
+	color: #000;
+text-decoration: none;
+
+}
+#issues3 a:link{
+	color: #000;
+text-decoration: none;
+
+}
+
+#issues4 a:link{
+	color: #000;
+text-decoration: none;
+
+}
+
+#issues a:visited{
+	color: #000;
+	text-decoration: none;
+	}
+	#issues1 a:visited{
+	color: #000;
+	text-decoration: none;
+	}
+	#issues2 a:visited{
+	color: #000;
+	text-decoration: none;
+	}
+#issues a:hover{
+background-color: #36F;
+
+    display:table;
+   height:105px;
+   font-size:15px;
+	font-weight:bold;
+	color: #FFF;
+}
+#issues1 a:hover{
+background-color: #F60;
+
+    display:table;
+   height:105px;
+   font-size:15px;
+	font-weight:bold;
+	color: #FFF;
+}
+#issues2 a:hover{
+background-color: #F00;
+
+    display:table;
+   height:105px;
+   font-size:15px;
+	font-weight:bold;
+	color: #FFF;
+}
+
+#issues3 a:hover{
+background-color: #2EFEF7;
+
+    display:table;
+   height:105px;
+   font-size:15px;
+	font-weight:bold;
+	color: #000000;
+}
+
+#issues4 a:hover{
+background-color: #F7FE2E;
+
+    display:table;
+   height:105px;
+   font-size:15px;
+	font-weight:bold;
+	color: #000000;
+}
+
+.titlemain h4{
+	
+	position:relative;
+ 	top:-47px;
+ 	left:470px;
+	padding-top:3px;
+	text-align:center;
+	border-top: 6px solid #36F;
+	width: 500px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:35px;
+	}
+
+.logomain {
+
+	background-color:#333333;
+
+	
+	
+	position:relative;
+
+
+	padding-top:3px;
+	}
+	.logomain{
+	margin-left: 0px;
+	margin-top:9px; 
+	margin-bottom:0px; 
+	
+	text-align:center;
+	
+	
+}
+
+
+#workflow{
+	margin-left: 0px;
+	
+	margin-bottom:0px; 
+    padding-top:0px;
+	text-align:left;
+	
+    padding-left: 15px;
+    padding-right: 15px;
+	
+	
+	width: 1770px;
+	font-family:system-ui;
+	font-size:20px;
+	
+}
+
+
+#workflow p {
+
+    padding-top: 0px;
+}
+
+
+
+#footer{
+	position:relative;
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:5px;
+		width:1490px;
+	margin-left:0px;
+	margin-top:920px;
+	font-size:13px;
+	font-family: Arial, Helvetica, sans-serif;
+		position:relative;
+	
+	display: block;
+	color:#FFF;
+	background-color:#333333;
+	clear: both;
+	height: 24px;
+	}
+	
+	#disclaimer{
+	position:absolute;
+	width:400px;
+		height:145px;
+	line-height:15px;	
+	margin:600px 0 0 530px;
+	clear:both;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 29px 10px;	
+
+text-align:center;
+
+
+}
+
+#tip1{
+	position: relative;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	margin:0px  0px  0 -50px;
+	width:500px;
+	
+	
+	}
+</style>
+</head>
+
+<body>
+<div class="logomain">
+<img src="articles/Azure-Synapse-Analytics.svg" width="350" height="129" alt="team_logo_lar"></div>
+<div class="titlemain">
+<h4>Inflight Query Troubleshooting</h4>
+ </div>
+
+
+ <div id="workflow">
+<p>
+<p>
+    <b><p style="color:blue">--STEP 1: </p>
+    -- First step is to confirm active queries to isolate user queries
+    <p>-- Is the full text available? If so, check the estimated query plan by adding the EXPLAIN preceding the query. </p>
+  <p>  /* Has the query started or is it still pending, check for a start time and the status to confirm its not suspended which means resource allocation pending tasks. */</b></p>
+    
+   SELECT *
+    FROM sys.dm_pdw_exec_requests
+    WHERE status not in ('Completed','Failed','Cancelled')
+    AND session_id <> session_id()
+    ORDER BY submit_time DESC;
+
+
+
+<p>
+   <b> DECLARE @QIDINFO varchar(15) = 'QID615063'--<<<<--ADD_QID_HERE------</b></p>
+   <b> <p style="color:blue"> --STEP 2: </p> 
+   <p> --Identify the step that is still running and take note, replace with the QID from the prior step.</p>
+   <p> -- Do you see more than two steps? It may be an indication that the table distribution is not optimized for this query. Verify if you can provide the distribution column to the user to add to their query. Or consider redistributing the table if this is a continual issue. </p>
+    <p>/*Confirm the operation type that is running, and command, if elapse time is long, we need to drill down to confirm if a particular distribution is causing this. */</p>
+  <p>  -- Check the row count as well.</p></b></p>
+ SELECT *
+    FROM sys.dm_pdw_request_steps
+    WHERE request_id = @QIDINFO --Place your request_id here from the prior step. 
+    ORDER BY step_index;
+
+ 
+
+
+  <b> <p style="color:blue">--STEP 3: </p> 
+    <p> /*Verify why a step is taking longer on a specific compute node, review if the total time and if a compute node is running longer than others */</b></p>
+    <p>SELECT * FROM sys.dm_pdw_sql_requests
+    WHERE request_id = @QIDINFO --Place your request_id here
+    AND step_index = <number> --Place your step_index ID here
+    order by spid;
+</p>  
+
+    <b> <p style="color:blue">--STEP 3a: </p>
+    --You can also get a glimpse of the table joins by using the below query and reviewing the join operation and select statement metadata. </b>
+    <p>select * from 	sys.dm_pdw_nodes_exec_text_query_plan where pdw_node_id=<id> and session_id=<session number>
+    </p>
+    
+
+   
+   <b> <p style="color:blue">--STEP 4: </p>
+   <p> --To get the plan for the distributed query run the following.</p>
+   <p>   --Check the join operation on the long running query, does it look valid. </p>
+   <p>  --Confirm if there are any invalid joins or if the estimated rows are off.</p>
+   <p>   --This can be an indication of statistic issues.</b></p>
+    <p>DBCC PDW_SHOWEXECUTIONPLAN (distribution_id, spid)</p>
+    <b>--Save the plan as .sqlplan to review the execution plan.</p></b>
+</p>
+    
+<p>
+   <b> <p style="color:blue">--STEP 5: </p>
+    --If the steps are just returning results, confirm that the client is just not taking a long time to process 
+    --the results. If executing, confirm if there is a particular move operation that is taking the most duration. </b>
+    select * from sys.dm_pdw_nodes_os_waiting_tasks  where session_id IN (SELECT spid
+    FROM sys.dm_pdw_sql_requests
+    WHERE request_id = @QIDINFO --Place your request_id here
+    AND step_index = <number> --Place your step_index ID here);
+    </p>
+     
+
+    <p>
+  <b> <p style="color:blue"> --STEP 6: </p>
+    --If the session is in suspended state, verify if the issue is regarding concurrency slots.
+    --Remember, different concurrency slots are aggregated to equal 100% of the overall concurrency slots available for that DWUc.
+    --It’s important to also note the maximum concurrent queries for each DWUc.
+    --We need to balance concurrency and performance of queries. This is where importance levels are impactful for important workloads. </b>
+    SELECT waits.session_id,
+          waits.request_id, 
+          requests.command,
+          requests.status,
+          requests.start_time, 
+          waits.type,
+          waits.state,
+          waits.object_type,
+          waits.object_name
+    FROM   sys.dm_pdw_waits waits
+       JOIN sys.dm_pdw_exec_requests requests
+       ON waits.request_id=requests.request_id
+    ORDER BY waits.object_name, waits.object_type, waits.state;
+</p>
+    
+
+<p>
+  <b>  <p style="color:blue">--STEP 7: </p>
+    --Verify if there are any table skewed in a specific distribution.</b>
+    SELECT *
+    FROM sys.dm_pdw_dms_workers
+    WHERE request_id = @QIDINFO --Place your request_id here
+    AND step_index = <stepIDHere>; --Place your step_index ID here
+    
+    </p>
+  
+    
+    <p>
+    <b><p style="color:blue"> --STEP 8: </p>
+    --Confirm that the SQL did not have errors:</b>
+    select * From sys.dm_pdw_errors where request_id=@QIDINFO;
+</p>   
+    
+
+<p>
+    <b><p style="color:blue">--STEP 9: 
+    --Verify the object name of the request: </b></p>
+    SELECT waits.session_id, waits.request_id, requests.command,
+    requests.status, requests.start_time, waits.type, waits.state,
+    waits.object_type, waits.object_name
+    FROM   sys.dm_pdw_waits waits
+    JOIN  sys.dm_pdw_exec_requests requests
+    ON waits.request_id=requests.request_id
+    WHERE waits.request_id = @QIDINFO
+    ORDER BY waits.object_name, waits.object_type, waits.state;
+</p>
+    </div>
+
+
+
+</p>
+
+
+ 
+
+ 
+ <div id="disclaimer">
+
+<div id="buttons1"><button onclick="myFunction1()"><h4>Disclaimer</h4></button></div>
+<div id="tip1" style="display: none;">
+<p>This site is provided for the purpose of illustration and learning and warrants no liability on the creators or their company. THIS SITE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE. Your software product in which the Site Code is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or result from the use of this SITE.  </p>
+
+</div>
+<script>
+function myFunction1() {
+    var x = document.getElementById('tip1');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+
+
+
+</div>
+
+
+
+<div id="footer">Created by SQL CE: Victor Adeyanju</div>
+</body>
+</html>
