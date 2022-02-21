@@ -1,0 +1,1445 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+ 
+ <meta charset="utf-8" />
+ <title>Synapse Troubleshooting Workflow</title> 
+ <link rel="icon" href="Azure-Synapse-Analytics.svg" type="image/x-icon" >
+ <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ 
+<style> 
+html {
+		
+		height:1600px;
+		background: #FFF; /* for non-css3 browsers */
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF', endColorstr='#FFF'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #FFF,  #FFF); /* for firefox 3.6+ */ 
+} 
+	
+	body{
+	background-color: #FFF;	
+	-moz-box-shadow: 0 0 5px 5px #333;
+	-webkit-box-shadow: 0 0 5px 5px #333;
+	box-shadow: 0 0 5px 5px #333;
+	
+	height:1230px;	
+	width: 1490px;
+	top:10px;
+  	
+	padding-bottom:30px;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+
+
+#tip1{
+	position: relative;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	margin:-130px  0px  0 245px;
+	width:500px;
+	
+	
+	}
+ a:visited{
+	color: #000;
+	text-decoration: none;
+	}
+ a:hover{
+
+	font-weight:bold;
+	color: #090;
+
+}
+
+ a:link{
+	color: #000;
+
+
+}
+
+
+
+#floats3{
+	position:absolute;
+	width: 110px;
+	background-color: #36F;
+	height:65px;
+	margin:10px 0 0 675px;
+	float:left;
+	box-shadow: 0 0 5px #888;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	    display:table;
+
+
+}
+
+#back1 a:link{
+	color: #000;
+text-decoration: none;
+text-align:center;
+
+}
+#back1 a:hover{
+	text-align:center;
+background-color: #0C3;
+
+    display:table;
+	width: 110px;
+   height:65px;
+   font-size:17px;
+
+	color: #FFF;
+}
+
+#back1 a:visited{
+	color: #000;
+	text-decoration: none;
+	}
+	
+	.logomain{
+		position:relative;
+	margin-left: 480px;
+	margin-right: 0px;
+	margin-top:19px; 
+	margin-bottom:0px; 
+	display: inline;
+	text-align:center;
+	z-index:1;
+	
+}
+#arrow {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:-100px 0 0 185px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+	 
+	 #move1{
+		 position: relative;
+text-align:center;
+	width:120px;
+	height:115px;
+	line-height:90px;
+	left:0px;	
+	margin:145px 0 0 150px;
+	background-color: #999;
+		box-shadow: 0 0 5px #888;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:20px;
+	color: #FFF;
+
+	 }
+	 
+	
+	
+	
+	
+	#arrow0 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:150px 0 0 312px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-90);
+
+		
+	 }
+	 
+	
+	 #floats6d{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:70px 0 0 1025px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip3d{
+	position: absolute;
+	height:125px;
+	width:400px;
+	margin:-200px  0px  0px 0px;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	 
+	
+	}
+
+
+
+
+
+	
+#floats13{
+	position:absolute;
+width:350px;
+		height:90px;
+		
+	
+	margin:-495px 0 0 1140px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:13px;
+	
+	
+
+box-shadow: 0 0 5px #888;
+text-align:center;
+
+
+
+
+}	
+
+
+
+	
+	#arrow11 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:155px 0 0 810px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+	 
+#floats13 a:hover{
+background-color: #36F;
+ width:350px;
+		height:80px;
+    display:table;
+     font-size:13px;
+	font-weight:bold;
+	color: #FFF;
+	
+	
+}	
+	
+	
+	
+	
+	
+	
+		
+	#arrow8 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:395px 0 0 341px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-90);
+
+		
+	 }
+	 
+
+	 #arrow8a {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:-100px 0 0 836px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-90);
+
+		
+	 }
+	
+		 #floats11{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	float:left;
+	margin:74px 0px 0 10px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+text-align:center;
+
+
+}
+	#tip8{
+	position: relative;
+	height:95px;
+	width:400px;
+	
+	margin-top:0px;
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	background-color: #FFF;
+		margin:-227px  0px  0 245px;
+	
+	}
+
+	
+	
+	
+	
+	
+	
+		#arrow9 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:170px 0 0 562px;
+		/* Safari */
+-webkit-transform: rotate(45deg);
+
+/* Firefox */
+-moz-transform: rotate(45deg);
+
+/* IE */
+-ms-transform: rotate(45deg);
+
+/* Opera */
+-o-transform: rotate(45deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+	 
+	
+
+	
+	
+	
+	
+	
+	#line1
+{
+    position: absolute;
+    border-right: 5px solid black;
+    top: 0;
+    bottom: 0;
+		margin:945px 0 0 440px;
+		height:219px;
+		
+}​
+
+
+	
+	
+	
+	
+	 #arrow2 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+	clear:both;
+	text-align:center;
+		margin:0px 0 0 110px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+
+		
+	 }
+			 
+			 
+	 
+	 #floats5{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	float:left;
+	margin:-160px 0px 0 79px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+text-align:center;
+
+
+
+
+}
+#tip2{
+	position: relative;
+	height:170px;
+	width:400px;
+	margin:-270px  0px  80px;
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	background-color: #FFF;
+		
+	
+	}
+
+
+
+
+#buttons1{
+	text-align:center;
+		
+}
+
+	 #arrow3 {
+	 font-size: 75px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:290px 0 0 360px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+
+
+
+	 #floats6a{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:90px 0 0 40px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip3a{
+	position: relative;
+	height:125px;
+	width:400px;
+	margin:-275px  0px  0 0px;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	 
+	
+	}
+
+	 
+
+	#floats6b{
+	position:relative;
+	width:400px;
+		height:155px;
+	line-height:15px;
+	margin:-165px 0 0 535px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip3b{
+	position: relative;
+	height:155px;
+	width:400px;
+	margin:-260px  0px  0 0px;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	 
+	
+	}
+
+
+
+
+	#floats6c{
+	position:relative;
+	width:400px;
+		height:155px;
+	line-height:15px;
+	margin:-187px 0 0 1035px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip3c{
+	position: relative;
+	height:215px;
+	width:400px;
+	margin:-370px  0px  0px 0px;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	 
+	
+	}
+
+
+	 #floats6{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:20px 0 0 5px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip3{
+	position: relative;
+	height:125px;
+	width:400px;
+	margin:-175px  0px  0 25px;
+	
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	 
+	
+	}
+
+
+
+
+	 #arrow4 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-100px 0 0 341px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-90);
+
+		
+	 }
+	 #floats7{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:-170px 0px 0 560px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip4{
+	position: relative;
+	height:195px;
+	width:400px;
+	margin:-80px  0px  0 195px;
+	clear:both;
+	background: rgb(255, 255, 255);
+	color: #000;
+	border:groove;
+	text-align:center;
+	
+	}
+	
+	
+	
+	
+		 #arrow5 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+width:50px;
+text-align:center;
+		margin:-146px 0 0 720px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+	 #floats8{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:-150px 0 0 500px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip5{
+	position: relative;
+	height:150px;
+	width:400px;
+	margin:-175px  0px  0 12px;
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	
+	}
+	
+
+	#floats9{
+	position:relative;
+	width:400px;
+		height:135px;
+	line-height:15px;
+	margin:-165px 0 0 980px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip9{
+	position: relative;
+	height:195px;
+	width:400px;
+	margin:-230px  0px  0 5px;
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	
+	}
+	
+
+	
+	#contactcss{
+		text-align:right; 
+		
+		position:absolute;
+		margin:-393px 0 0 0px;
+		width: 1470px;
+	
+	
+	background-color:#333333;
+	color:#FFF;
+	border:1px solid #000000;
+	height:40px;
+		font-family: Arial, Helvetica, sans-serif;
+	padding-right:20px;
+	padding-top:2px;
+	padding-bottom:89px;
+	
+	
+	}
+		
+
+	
+
+
+
+		 #arrow6 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:350px 0 0 720px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+
+
+
+
+		 #arrow7 {
+	 font-size: 100px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-590px 0 0 -5px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+
+		
+	 }
+	 #arrow7a {
+	 font-size: 100px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-490px 0 0 -5px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+
+		
+	 }
+
+
+	 #arrow7b {
+	 font-size: 95px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-388px 0 0 -3px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+
+		
+	 }
+
+	 #arrow12 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-90px 0 0 307px;
+		/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=90);
+
+		
+	 }
+
+	 #floats10{
+	position:relative;
+	width:300px;
+		height:142px;
+	line-height:15px;	
+	margin:80px 0 0 580px;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	padding:10px 10px 20px 10px;	
+
+box-shadow: 0 0 5px #888;
+}
+#tip7{
+	position: relative;
+		height:95px;
+	width:400px;
+	margin:-80px  0px  0 195px;
+
+	clear:both;
+	background: #FFF;
+	color: #000;
+	border:groove;
+	text-align:center;
+	
+	}
+
+
+		 #arrow10 {
+	 font-size: 80px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-98px 0 0 720px;
+		/* Safari */
+-webkit-transform: rotate(0deg);
+
+/* Firefox */
+-moz-transform: rotate(0deg);
+
+/* IE */
+-ms-transform: rotate(0deg);
+
+/* Opera */
+-o-transform: rotate(0deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+		
+	 }
+
+	 #arrow13 {
+	 font-size: 95px;
+	  position: absolute;
+	height:0px;
+
+text-align:center;
+		margin:-125px 0 0 1579px;
+		/* Safari */
+-webkit-transform: rotate(90deg);
+
+/* Firefox */
+-moz-transform: rotate(90deg);
+
+/* IE */
+-ms-transform: rotate(90deg);
+
+/* Opera */
+-o-transform: rotate(90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+
+		
+	 }
+
+
+	 #mode {
+	 font-size: 100px;
+	  position: relative;
+	height:0px;
+
+text-align:center;
+		margin:90px 0 0 0px;
+		
+		
+	 }
+
+
+
+#footer{
+	position:relative;
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:5px;
+	background-color:#333333;
+	width:1490px;
+	margin-left:0px;
+	margin-top:0px;
+	font-size:13px;
+	font-family: Arial, Helvetica, sans-serif;
+	
+	
+	
+	color:#FFF;
+	
+	
+	clear: both;
+	height: 24px;
+
+	}
+</style>
+</head>
+
+<body>
+<!-- Header right begin-->
+
+<!-- Header right end-->
+<div class="logomain">
+<img src="Azure-Synapse-Analytics.svg" width="500" height="129" alt="Azure Synapse icon" ></div>
+<div id="back1">
+<div id="floats3">
+<a href="../index.html">
+<h3>Start Over</h3></a>
+  </div>
+</div>
+ 
+ <div id="move1">
+ <p>Start Here</p></div>
+<div id="arrow">
+ <p>&darr;</p></div>
+ 
+
+
+
+</div>
+
+<div id="contactcss" >
+    Need Help? Contact Support  
+       <div style= "vertical-align:bottom;"><a href="https://azure.microsoft.com/en-us/support/options/"style="color:#FF0000";>  <img src="Help-and-Support.svg"  width="100" height="100" alt="Contact Support"> </a>
+  </div></div>
+
+ 
+<div id="arrow0">
+ <p>&darr;</p></div>
+
+
+ 
+ 
+<div id="arrow8">
+ <p>&darr;</p></div>
+
+<div id="floats11">
+<p><b>User Complains that DSQL is slow: </b>Follow the below steps to confirm the bottleneck. Select the below for more details.</p>
+<div id="buttons1"><button onclick="myFunction8()"><h4>SHOW DQUERY TIP</h4></button></div>
+<div id="tip8" style="display: none;">
+<p>Click to view the below script</p>
+<a href="synapseinflightmain.sql"  alt="sql" target="_blank"  ><h4>Open/Download</h4></a> </p>
+
+
+</div>
+<script>
+function myFunction8() {
+    var x = document.getElementById('tip8');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+</div>
+ 
+
+
+
+<div id="arrow9">
+ <p>&darr;</p></div>
+
+
+
+
+
+
+
+
+
+
+<div id="arrow11">
+ <p>&darr;</p></div>
+
+
+
+
+ <div id="floats6d">
+	<p><b>Get resource usage:</b> Confirm which query is using the most TempDB, Memory or concurrency slots if system or other queries are impacted.
+	 </p>
+	<div id="buttons1"><button onclick="myFunction3d()"><h4>VERIFY RESOURCE USAGE</h4></button></div>
+	<div id="tip3d" style="display: none;">
+	<p>Click to view how to confirm resource usage:</p>
+	<a href="Azure Synapse SQL Pool Resource Monitoring.htm" ><h4>Review resource usage on the synapse instance.</h4></a> </p>
+	</p>
+</div>
+<script>
+function myFunction3d() {
+    var x = document.getElementById('tip3d');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+</div>
+
+
+
+<div id="floats13">
+ <a href="construction.jpg">
+<h4><p>Next Page</p>
+Synapse Serverless Pool Troubleshooting 
+<p>*Coming Soon*</p>
+</h4>
+</a>
+</div>
+
+ 
+ 
+<div id="floats5">
+<p><b>Resource and SQL Command Review: </b>In sys.dm_pdw_exec_requests confirm that the query has not failed. Please select the below for more tips.  </p>
+<div id="buttons1"><button onclick="myFunction2()"><h4>SHOW DQUERY TIP</h4></button></div>
+<div id="tip2" style="display: none;">
+<p>Click to view the Session query:</p>
+<a href="dm_pdw_exec_requests_info.png"  alt="resource review" target="_self"  ><h4>View Example</h4></a> </p>
+<p>Tip: Review the resource/workload class and allocation percentage and SQL text. Are they suitable for the query? If not, consider increasing them.  Are there any errors from the follwoing query: 
+	<b style="color: rgb(255, 0, 0);">select * From sys.dm_pdw_errors 
+order by create_time desc;</b>
+</p>
+
+
+</div>
+<script>
+function myFunction2() {
+    var x = document.getElementById('tip2');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+</div>
+
+
+
+<div id="floats6a">
+	<p><b>Full SQL text is truncated: </b> Consider enabiling query store to capture the full SQL text.  </p>
+	<div id="buttons1"><button onclick="myFunction3a()"><h4>SHOW QUERY STORE CONFIGURATION</h4></button></div>
+	<div id="tip3a" style="display: none;">
+	<p>Click to view how to configure Query Store :</p>
+	<a href="querystore.sql" alt="querystore" target="_self" ><h4>Download SQL Query Store</h4></a> </p>
+	<p>Review how enable and capture full query text. 
+	</p>
+</div>
+<script>
+function myFunction3a() {
+    var x = document.getElementById('tip3a');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+</div>
+
+
+
+<div id="arrow8a">
+	<p>&darr;</p></div>
+<div id="floats6b">
+	<p><b>Verify the distributed query plan:</b> If the query has multiple movements, this is an indication of a nonoptimal table distribution. 
+		We can first verify the distribution either via sys.dm_pdw_request_steps or checking the estimated execution plan in SSMS.
+	 </p>
+	<div id="buttons1"><button onclick="myFunction3b()"><h4>VERIFY DSQL PLAN</h4></button></div>
+	<div id="tip3b" style="display: none;">
+	<p>Look for movements in the DSQL as BroadcastMoveOperation, ShuffleMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation:</p>
+	<a href="dsql.htm" ><h4> Click to view how to confirm DSQL Plan</h4></a> </p>
+	<p>How is the query being distributed.
+	</p>
+</div>
+<script>
+function myFunction3b() {
+    var x = document.getElementById('tip3b');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+</div>
+
+
+
+
+<div id="floats6c">
+	<p><b>Get a granular view of the compute plans:</b>Sometimes we may need to review the actual compute query plan at a more granular level. 
+	 </p>
+	<div id="buttons1"><button onclick="myFunction3c()"><h4>VERIFY DSQL PLAN</h4></button></div>
+	<div id="tip3c" style="display: none;">
+	<p>Click to view how to confirm an actual compute Plan:</p>
+	<a href="Getting Actual Distributed Query Plan.htm" ><h4>Review the compute plan on a more granular level.</h4></a> </p>
+	<p style="color: rgb(255, 0, 0);font-weight: bolder;">Warning, this should not be done in production as this can take a lot of resources and cause sporadic behavior when executing in SSMS. Also consider executing in sqlcmd. Please also note this is the actual execution plan. All deletes, inserts, etc., will be processed. 
+	</p>
+</div>
+<script>
+function myFunction3c() {
+    var x = document.getElementById('tip3c');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+</div>
+
+
+
+<div id="floats6">
+<p><b>Check statistiscs on system: </b>Have you just updated data, are your queries taking longer to execute?  </p>
+<div id="buttons1"><button onclick="myFunction3()"><h4>SHOW STATISTICS TIP</h4></button></div>
+<div id="tip3" style="display: none;">
+<p>Click to view the statistics metadata:</p>
+<a href="Azure Synapse SQL Pool Statistics.htm" ><h4>View statistics options</h4></a> </p>
+<p>Review options to verify current system statistics. 
+</p>
+
+
+</div>
+<script>
+function myFunction3() {
+    var x = document.getElementById('tip3');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+</div>
+
+
+
+
+
+
+
+
+<div id="arrow12">
+	<p>&darr;</p></div>
+
+<div id="floats8">
+<p><b>Post Analysis/Historical Data:</b> To confirm trends and other behavior enable diagnostic settings for Synapse.</p>
+<div id="buttons1"><button onclick="myFunction5()"><h4>SHOW TIP</h4></button></div>
+<div id="tip5" style="display: none;">
+<p>Click to view how to capture additional telemetry data.</p>
+<a href="Azure Synapse SQL DW Log Analytics Custom Metadata Logging.htm"  ><h4>Open/Download</h4></a> </p>
+<p> At times there may be additional data an organization is interested in capturing, or to review historical trends, Log Analytics and this custom API call will empower you to do so. 
+</p>
+
+
+</div>
+<script>
+function myFunction5() {
+    var x = document.getElementById('tip5');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+</div>
+
+
+
+
+
+<div id="floats9">
+	<p><b>Query not executing:</b> If the query is not executing or even parsing, query syntax details need to be examined.</p>
+	<div id="buttons1"><button onclick="myFunction9()"><h4>SHOW TIP</h4></button></div>
+	<div id="tip9" style="display: none;">
+	<p>Click to view techniques to confirm why the query is not executing.</p>
+	<a href="Azure Synapse Query Not Running Options.htm"  ><h4>Open/Download</h4></a> </p>
+	<p> When queries have been migrated from other machines, we need to examine the overall query behavior especially when they are migrated from legacy data warehouses. 
+	</p>
+	
+	
+	</div>
+	<script>
+	function myFunction9() {
+		var x = document.getElementById('tip9');
+		if (x.style.display === 'none') {
+			x.style.display = 'block';
+		} else {
+			x.style.display = 'none';
+		}
+	}
+	</script>
+	
+	</div>
+
+<div style="border-left:5px #000 solid; position: absolute; margin-left:18px; margin-top:-469px;  height:200px; 
+-webkit-transform: rotate(0deg);
+/* Firefox */
+-moz-transform: rotate(0deg);
+/* IE */
+-ms-transform: rotate(0deg);
+/* Opera */
+-o-transform: rotate(0deg);
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0)" > 
+</div>
+
+
+ 
+
+	
+		<div id="arrow7b">
+			<p>&darr;</p></div>
+
+	<script type = "text/javascript">
+	
+		function synapsesearch(){
+		//var txtName = document.getElementById("txtName");
+		//var txtOutput = document.getElementById("txtOutput");
+		//var name = txtName.value;
+		
+		//txtOutput.value =  name 
+		} // end synapsesearch
+
+		//$( "#txtName:contains('Victor')" ).css( "text-decoration", "underline" );
+		</script>
+
+
+
+
+
+
+<div style="border-left:5px #000 solid; position: absolute; margin-left:1202px; margin-top:-745px;  height:550px; 
+-webkit-transform: rotate(90deg);
+/* Firefox */
+-moz-transform: rotate(90deg);
+/* IE */
+-ms-transform: rotate(90deg);
+/* Opera */
+-o-transform: rotate(90deg);
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=90)" > 
+</div>
+
+
+<div style="border-left:5px #000 solid; position: absolute; margin-left:1479px; margin-top:-473px;  height:350px; 
+-webkit-transform: rotate(0deg);
+/* Firefox */
+-moz-transform: rotate(0deg);
+/* IE */
+-ms-transform: rotate(0deg);
+/* Opera */
+-o-transform: rotate(0deg);
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0)" > 
+</div>
+
+	
+		<div id="arrow13">
+			<p>&darr;</p></div>
+
+
+
+
+<div id="mode"></div>
+	 <form action = "">
+		<fieldset>
+		<input type = "button"
+		value = "Dark Mode"
+		onclick = "document.body.style.backgroundColor = 'black'; document.body.style.color = 'white';		document.body.style.htmlcolor= 'black'"/>
+		<input type = "button"
+		value = "Normal Mode"
+		onclick = "document.body.style.backgroundColor = 'white'; document.body.style.color = 'black';" />
+	</fieldset>
+</form>
+</div>
+
+<div id="footer">Created by SQL CE: Victor Adeyanju</div>
+</body>
+</html>
