@@ -8,7 +8,7 @@
  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
  
 <style> 
-html {
+#html {
 		
 		height:1600px;
 		background: #FFF; /* for non-css3 browsers */
@@ -1432,7 +1432,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0)" >
 		<fieldset>
 		<input type = "button"
 		value = "Dark Mode"
-		onclick = "document.body.style.backgroundColor = 'black'; document.body.style.color = 'white';		document.body.style.htmlcolor= 'black'"/>
+		onclick = "document.body.style.backgroundColor = 'black'; document.body.style.color = 'white';		var htmlelement = document.getElementById('html');    htmlelement.style.backgroundColor= 'black'; "/>
 		<input type = "button"
 		value = "Normal Mode"
 		onclick = "document.body.style.backgroundColor = 'white'; document.body.style.color = 'black';" />
