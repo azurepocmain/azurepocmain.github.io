@@ -1198,12 +1198,12 @@ function myFunction2() {
 
 
 <div id="floats6a">
-	<p><b>Full SQL text is truncated: </b> Consider enabiling query store to capture the full SQL text.  </p>
-	<div id="buttons1"><button onclick="myFunction3a()"><h4>SHOW QUERY STORE CONFIGURATION</h4></button></div>
+	<p><b>Full SQL text is truncated: </b> Check the command2 column on sys.dm_pdw_exec_requests as it holds nvarchar(max) type.  </p>
+	<div id="buttons1"><button onclick="myFunction3a()"><h4>SHOW DQUERY TIP</h4></button></div>
 	<div id="tip3a" style="display: none;">
-	<p>Click to view how to configure Query Store :</p>
-	<a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/querystoresetting.sql" alt="querystore" target="_blank" ><h4>QueryStore GotoGitHub</h4></a> </p>
-	<p>Review how enable and capture full query text. 
+	<p>Click to view how to show tip :</p>
+	<a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/fulltextsetting.sql" alt="querystore" target="_blank" ><h4>Full Text Info GotoGitHub</h4></a> </p>
+	<p>Review options to get full query text. 
 	</p>
 </div>
 <script>
