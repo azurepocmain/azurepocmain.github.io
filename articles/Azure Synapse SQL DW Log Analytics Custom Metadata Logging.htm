@@ -893,6 +893,14 @@ normal'><span style='font-size:12.0pt;mso-bidi-font-size:11.0pt;line-height:
 <p><a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/AzureAutomationSynapse_Storedproc.ps1" alt="Azure Automation Stored Procedure Collection" target="_blank" ><h4>Azure Automation Stored Procedure Collector GitHub</h4></a> </p>
 
 
+<p style="color: rgb(0, 0, 0);font-weight: bolder; font-family: Arial, Helvetica, sans-serif; text-decoration: underline;">SQL Pool KQL Examples: </p>
+
+<p>
+  <a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/Dedicated%20SQL%20pool%20(formerly%20SQL%20DW)%20KQLs" alt="Dedicated SQL pool (formerly SQL DW) KQLs" target="_blank" ><h4>Dedicated SQL pool (formerly SQL DW) KQLs GitHub</h4></a> 
+  <a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/Dedicated%20SQL%20pool%20Synapse%20Workspace" alt="Newer Dedicated SQL pool Synapse Workspace KQLs" target="_blank" ><h4>Newer Dedicated SQL pool Synapse Workspace KQLs GitHub</h4></a> 
+
+
+</p>
 
 <p><h2 style="font-weight: bolder; font-family: Arial, Helvetica, sans-serif;">Enabling Logging for Azure Synapse:</h2></p>
 <p class=MsoNormal style='margin-bottom:0in'><span style='font-family:"Arial",sans-serif'>First,
@@ -3927,7 +3935,11 @@ style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>
 most cases you may want to add the data to an already created KQL table data
 set. You can use something <span class=GramE>similar to</span> the below to
 join both tables. <span class=SpellE>RequestId_s</span> will be the required
-join condition and column for each table. <b><o:p></o:p></b></span></span></p>
+join condition and column for each table. 
+<p>
+  Remember, the Dedicated SQL pool (formerly SQL DW) and the Dedicated SQL pool created in the Synapse workspace will have 
+  slightly different KQL tables to reference. Please see below for more details. 
+   </p><b><o:p></o:p></b></span></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></span></p>
@@ -3935,44 +3947,40 @@ style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span class=SpellE><span style='font-family:
-"Arial",sans-serif'>AzureDiagnostics</span></span></span><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>
-<o:p></o:p></span></span></p>
+<p style="color: rgb(0, 0, 0);text-align: left;    font-family: Arial, Helvetica, sans-serif; white-space: pre-line; font-weight: bold;"> 
+let AzuresynapseDW = 'synapseInstanceNameaHere';
+AzureDiagnostics
+| where Category == 'ExecRequests'
+| where Resource == AzuresynapseDW
+| where StatementType_s !in ('Batch','Execute')
+| summarize TimeGenerated=max(TimeGenerated),
+Start_Time=max(StartTime_t),
+End_Time=max(EndTime_t),
+Command=max(Command_s),
+Last_Status=min(Status_s),
+Statement_Type=max(StatementType_s),
+Resource_class=max(ResourceClass_s)
+by RequestId_s
+| extend elapsedTime_min = (case(End_Time =='1/1/1601, 12:00:00.000 AM', now(),End_Time) - case(Start_Time =='1/1/1601, 12:00:00.000 AM', now(),Start_Time ))/1m
+| where elapsedTime_min > 1
+| order by elapsedTime_min desc
+| join kind=leftouter (
+SynapseSessionDW_CL
+|where isnotnull(Login_Name_s)
+| project Login_Name_s, RequestId_s
+)
+on $left.RequestId_s==$right.RequestId_s
+</p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>|
-project <span class=SpellE>Command_<span class=GramE>s</span></span><span
-class=GramE>,<span style='mso-spacerun:yes'> </span><span class=SpellE>RequestId</span></span><span
-class=SpellE>_s</span><o:p></o:p></span></span></p>
+<P style="color: rgb(0, 0, 0);text-align: left;    font-family: Arial, Helvetica, sans-serif;">
+  For more examples please visit: 
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>|
-join kind=<span class=GramE>inner<span style='mso-spacerun:yes'> </span>(</span><o:p></o:p></span></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span class=SpellE><span style='font-family:
-"Arial",sans-serif'>SynapseSessionDW_CL</span></span></span><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>
-<o:p></o:p></span></span></p>
+  <a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/Dedicated%20SQL%20pool%20(formerly%20SQL%20DW)%20KQLs" alt="Dedicated SQL pool (formerly SQL DW) KQLs" target="_blank" ><h4>Dedicated SQL pool (formerly SQL DW) KQLs GitHub</h4></a> 
+  <a href="https://github.com/azurepocmain/azuresynapseworkflow/blob/main/Dedicated%20SQL%20pool%20Synapse%20Workspace" alt="Dedicated SQL pool Synapse Workspace KQLs" target="_blank" ><h4>Dedicated SQL pool Synapse Workspace KQLs GitHub</h4></a> 
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>|where
-<span class=SpellE><span class=GramE>isnotnull</span></span><span class=GramE>(</span><span
-class=SpellE>Login_Name_s</span>)<o:p></o:p></span></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>|
-project <span class=SpellE>Login_Name_s</span>, <span class=SpellE>RequestId_s</span>,
-<span class=SpellE>Command_s</span><o:p></o:p></span></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>)<o:p></o:p></span></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'>on
-<span class=SpellE>RequestId_s</span><o:p></o:p></span></span></p>
+  
+</P>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='mso-bookmark:_Hlk501750076'><span style='font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></span></p>
@@ -3991,7 +3999,7 @@ mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x00
  <v:imagedata src="Azure%20Synapse%20SQL%20DW%20Log%20Analytics%20Custom%20Metadata%20Logging_files/image007.png"
   o:title="A screenshot of a computer screen&#10;&#10;Description automatically generated with medium confidence"/>
 </v:shape><![endif]--><![if !vml]><img width=864 height=319
-src="Azure%20Synapse%20SQL%20DW%20Log%20Analytics%20Custom%20Metadata%20Logging_files/image008.png"
+src="Azure%20Synapse%20SQL%20DW%20Log%20Analytics%20Custom%20Metadata%20Logging_files/kqljoinpoc.png"
 alt="A screenshot of a computer screen&#10;&#10;Description automatically generated with medium confidence"
 v:shapes="Picture_x0020_11"><![endif]></span></span><span style='mso-bookmark:
 _Hlk501750076'><span style='font-family:"Arial",sans-serif'><o:p></o:p></span></span></p>
