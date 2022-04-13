@@ -816,7 +816,7 @@ force the optimizer to perform certain operations that an engineer may deem to b
 more optimal. The example below will show you how a query that can potentially
 take over an hour to run will run around 15 minutes by leveraging a query hint.
 Enforcing the importance of query hints in a Data Engineers repertoire. <span
-style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+style='mso-spacerun:yes'></span><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -842,62 +842,62 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>Coalesce(p.[ModelName],
+style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
 p.[EnglishProductName]) AS [Model]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.City AS ResellerCity<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.City AS ResellerCity<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,CASE<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>WHEN Month(f.OrderDate) &lt; 7 THEN
+style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
 Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>END AS FiscalYear -- Fiscal year runs from
+style='mso-spacerun:yes'> </span>END AS FiscalYear -- Fiscal year runs from
 Jul to June)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Approx_count_distinct(f.SalesOrderNumber)
-AS UniqueOrders<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Approx_count_distinct(f.SalesOrderNumber)
+AS UniqueOrders<span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>FROM<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -905,7 +905,7 @@ JOIN [dbo].[DimReseller] r<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -913,7 +913,7 @@ JOIN [dbo].[DimGeography] g<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -921,7 +921,7 @@ JOIN [dbo].[DimProduct] p<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>GROUP
@@ -929,41 +929,41 @@ BY<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>Coalesce(p.[ModelName],
+style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
 p.[EnglishProductName])<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.City<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.City<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.StateProvinceName<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.StateProvinceName<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Year(f.OrderDate)<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,CASE<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>WHEN Month(f.OrderDate) &lt; 7 THEN
+style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
 Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>END<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>END<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Month(f.OrderDate)<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Month(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ORDER
@@ -982,7 +982,7 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 "Times New Roman"'>We first purposely neglect to create any user defined statistics
 and disabled the auto creation of system statistics on the database to also reinforce
 the importance of statistics on the data warehouse system. Within 25 minutes of
-executing, we received a “Msg 1105, Level 16, State 2, Line 31” indicating that
+executing, we received a Msg 1105, Level 16, State 2, Line 31 indicating that
 TempDB could not allocate any additional space. <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-no-proof:
@@ -1032,7 +1032,7 @@ STATISTICS [FactResellerSales_HASH_CCI_ord_nq]<o:p></o:p></span></p>
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
 [dbo].[FactResellerSales_HASH_CCI]([OrderDate],OrderQuantity,ExtendedAmount<span
-style='mso-spacerun:yes'>  </span>) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -1231,62 +1231,62 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>Coalesce(p.[ModelName],
+style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
 p.[EnglishProductName]) AS [Model]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.City AS ResellerCity<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.City AS ResellerCity<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,CASE<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>WHEN Month(f.OrderDate) &lt; 7 THEN
+style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
 Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>END AS FiscalYear -- Fiscal year runs from
+style='mso-spacerun:yes'> </span>END AS FiscalYear -- Fiscal year runs from
 Jul to June)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Approx_count_distinct(f.SalesOrderNumber)
-AS UniqueOrders<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Approx_count_distinct(f.SalesOrderNumber)
+AS UniqueOrders<span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>FROM<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -1294,7 +1294,7 @@ JOIN [dbo].[DimReseller] r<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -1302,7 +1302,7 @@ JOIN [dbo].[DimGeography] g<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
@@ -1310,7 +1310,7 @@ JOIN [dbo].[DimProduct] p<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>GROUP
@@ -1318,41 +1318,41 @@ BY<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>Coalesce(p.[ModelName],
+style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
 p.[EnglishProductName])<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.City<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.City<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,g.StateProvinceName<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,g.StateProvinceName<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Year(f.OrderDate)<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,CASE<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>WHEN Month(f.OrderDate) &lt; 7 THEN
+style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
 Year(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>        </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>END<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>END<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'>    </span>,Month(f.OrderDate)<o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span>,Month(f.OrderDate)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ORDER
@@ -1390,7 +1390,7 @@ mso-fareast-font-family:"Times New Roman"'>Conclusion: <o:p></o:p></span></u></b
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'>As we have seen above, query hints play an integral role in
 truly enhancing workloads. We went from over an hour runtime, to around 15
-minutes. It’s important for Data Engineers to exhaust all optimization options to
+minutes. Its important for Data Engineers to exhaust all optimization options to
 ensure a performant running query in a data warehouse . <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
@@ -1421,7 +1421,7 @@ distribute the object code form of the Sample Code, provided that. You agree:
 which the Sample Code is embedded; (ii) to include a valid copyright notice on
 Your software product in which the Sample Code is embedded; and (iii) to
 indemnify, hold harmless, and defend Us and Our suppliers from and against any
-claims or lawsuits, including attorneys’ fees, that arise or result from the
+claims or lawsuits, including attorneys fees, that arise or result from the
 use or distribution or use of the Sample Code.</span><o:p></o:p></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
