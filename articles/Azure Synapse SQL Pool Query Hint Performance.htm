@@ -1212,8 +1212,10 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 to force the optimizer to perform a hash aggregate with the grouping data. We
 now see instead of three sort operations, the data is only sorted at the end and
 only once. In addition, the query only takes 15 minutes to complete. Which is a
-huge performance improvement for our runtimes, which fits into the ETL window. Please
-note that while the second plan has a <o:p></o:p></span></p>
+huge performance improvement for our runtimes, which fits into the ETL window. In 
+addition, we were able to produce the same exact runtime in the small resource class. 
+Showing that throwing additional resources to a session is not always the answer.
+Please note that while the second plan has a <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
