@@ -24,7 +24,7 @@ background: -moz-linear-gradient(top,  #FFF,  #FFF); /* for firefox 3.6+ */
 	-webkit-box-shadow: 0 0 5px 5px #333;
 	box-shadow: 0 0 5px 5px #333;
 	
-	height:1230px;	
+	height:1465px;	
 	width: 1490px;
 	top:10px;
   	
@@ -653,6 +653,39 @@ box-shadow: 0 0 5px #888;
 
 
 
+	#floats6e{
+		position:relative;
+		width:400px;
+			height:135px;
+		line-height:15px;
+		margin:70px 0 0 5px;
+		
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:15px;
+		padding:10px 10px 20px 10px;	
+	
+	box-shadow: 0 0 5px #888;
+	}
+	#tip3e{
+		position: relative;
+		height:125px;
+		width:400px;
+		margin:-5px  0px  0 5px;
+		
+		clear:both;
+		background: #FFF;
+		color: #000;
+		border:groove;
+		text-align:center;
+		 
+		
+		}
+	
+	
+
+
+
+
 
 	 #arrow4 {
 	 font-size: 80px;
@@ -998,7 +1031,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	height:0px;
 
 text-align:center;
-		margin:-125px 0 0 1579px;
+		margin:-357px 0 0 1579px;
 		/* Safari */
 -webkit-transform: rotate(90deg);
 
@@ -1016,6 +1049,33 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
 
 		
 	 }
+
+
+	 #arrow14 {
+		font-size: 95px;
+		 position: absolute;
+	   height:0px;
+   
+   text-align:center;
+		   margin:-368px 0 0 180px;
+		   /* Safari */
+   -webkit-transform: rotate(0deg);
+   
+   /* Firefox */
+   -moz-transform: rotate(0deg);
+   
+   /* IE */
+   -ms-transform: rotate(0deg);
+   
+   /* Opera */
+   -o-transform: rotate(0deg);
+   
+   /* Internet Explorer */
+   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+   
+		   
+		}
+
 
 
 	 #mode {
@@ -1390,12 +1450,34 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0)" >
 		//$( "#txtName:contains('Victor')" ).css( "text-decoration", "underline" );
 		</script>
 
+		<div id="floats6e">
+			<p><b>Force optimizer plans with query hints: </b>Has all else failed, do you need to take matters into your own hands?  </p>
+			<div id="buttons1"><button onclick="myFunction10()"><h4>SHOW QUERY HINT TIP</h4></button></div>
+			<div id="tip3e" style="display: none;">
+			<p>Click to view options on forcing the optimizer to invoke a specific plan:</p>
+			<a href="Azure Synapse SQL Pool Query Hint Performance.htm" ><h4>View query hint options</h4></a> </p>
+			<p>Review options to verify query hint force plans. 
+			</p>
+			
+			
+			</div>
+			<script>
+			function myFunction10() {
+				var x = document.getElementById('tip3e');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+			</script>
+			
+			</div>
 
 
 
 
-
-<div style="border-left:5px #000 solid; position: absolute; margin-left:1202px; margin-top:-745px;  height:550px; 
+<div style="border-left:5px #000 solid; position: absolute; margin-left:1202px; margin-top:-980px;  height:550px; 
 -webkit-transform: rotate(90deg);
 /* Firefox */
 -moz-transform: rotate(90deg);
@@ -1408,7 +1490,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=90)" >
 </div>
 
 
-<div style="border-left:5px #000 solid; position: absolute; margin-left:1479px; margin-top:-473px;  height:350px; 
+<div style="border-left:5px #000 solid; position: absolute; margin-left:1479px; margin-top:-708px;  height:350px; 
 -webkit-transform: rotate(0deg);
 /* Firefox */
 -moz-transform: rotate(0deg);
@@ -1424,6 +1506,10 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0)" >
 		<div id="arrow13">
 			<p>&darr;</p></div>
 
+
+			<div id="arrow14">
+				<p>&darr;</p></div>
+	
 
 
 
