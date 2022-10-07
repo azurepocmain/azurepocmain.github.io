@@ -25,16 +25,16 @@ w\:* {behavior:url(#default#VML);}
   <o:Author>Victor Adeyanju</o:Author>
   <o:Template>Normal</o:Template>
   <o:LastAuthor>Victor Adeyanju</o:LastAuthor>
-  <o:Revision>2</o:Revision>
-  <o:TotalTime>1166</o:TotalTime>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>1193</o:TotalTime>
   <o:Created>2022-10-07T03:41:00Z</o:Created>
-  <o:LastSaved>2022-10-07T03:41:00Z</o:LastSaved>
-  <o:Pages>8</o:Pages>
-  <o:Words>1365</o:Words>
-  <o:Characters>7785</o:Characters>
-  <o:Lines>64</o:Lines>
-  <o:Paragraphs>18</o:Paragraphs>
-  <o:CharactersWithSpaces>9132</o:CharactersWithSpaces>
+  <o:LastSaved>2022-10-07T04:08:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1939</o:Words>
+  <o:Characters>11054</o:Characters>
+  <o:Lines>92</o:Lines>
+  <o:Paragraphs>25</o:Paragraphs>
+  <o:CharactersWithSpaces>12968</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -47,8 +47,6 @@ href="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/themedata.thmx"
 href="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/colorschememapping.xml">
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:PunctuationKerning/>
@@ -764,12 +762,12 @@ span.HTMLPreformattedChar
 	mso-fareast-font-family:"Times New Roman";
 	mso-hansi-font-family:"Courier New";
 	mso-bidi-font-family:"Courier New";}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
+span.spelle
+	{mso-style-name:spelle;
+	mso-style-unhide:no;}
+span.grame
+	{mso-style-name:grame;
+	mso-style-unhide:no;}
 .MsoChpDefault
 	{mso-style-type:export-only;
 	mso-default-props:yes;
@@ -1011,34 +1009,29 @@ resource metadata: <o:p></o:p></span></u></b></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>To
-confirm the <span class=SpellE>TempDB</span> usage on the database for each
-node, you can use the following: <o:p></o:p></span></p>
+confirm the TempDB usage on the database for each node, you can use the
+following: <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>SELECT&nbsp; tempdbusage.pdw</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_node_id,(SUM((tempdbusage.user_objects_alloc_page_count
-* 8)) + SUM((<span class=SpellE>tempdbusage.internal_objects_alloc_page_count</span>
-* 8))) AS '<span class=SpellE>Tempdb_Space_Allocated_KB</span>' FROM <span
-class=SpellE>sys.dm_pdw_nodes_db_session_space_usage</span> AS <span
-class=SpellE>tempdbusage</span> WHERE DB_NAME(<span class=SpellE>tempdbusage.database_id</span>)
-= '<span class=SpellE>tempdb</span>' GROUP BY <span class=SpellE>tempdbusage.pdw_node_id</span>&nbsp;
-order by <span class=SpellE>pdw_Node_id</span>;<o:p></o:p></span></p>
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT&nbsp;
+tempdbusage.pdw_node_id,(SUM((tempdbusage.user_objects_alloc_page_count * 8)) +
+SUM((tempdbusage.internal_objects_alloc_page_count * 8))) AS
+'Tempdb_Space_Allocated_KB' FROM sys.dm_pdw_nodes_db_session_space_usage AS
+tempdbusage WHERE DB_NAME(tempdbusage.database_id) = 'tempdb' GROUP BY
+tempdbusage.pdw_node_id&nbsp; order by pdw_Node_id;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>To
-confirm which session is using <span class=SpellE>TempDB</span>, please follow
-the below links, which will require you to first create a schema, then create
-the <span class=SpellE><span class=GramE>microsoft.vw</span>_sql_requests</span>
-and invoke the query similar to the below. <o:p></o:p></span></p>
+confirm which session is using TempDB, please follow the below links, which
+will require you to first create a schema, then create the
+microsoft.vw_sql_requests and invoke the query similar to the below. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>Reference:
@@ -1064,149 +1057,20 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;vertical-align:
+middle'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+color:white'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'># Input
-bindings are passed in via param block.</span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>--Schema
+creation:<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#569CD6'>param</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>(</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#74B0DF'>$Timer</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>)</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'># Get
-the current universal time in the default string format.</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#74B0DF'>$<span
-class=SpellE>currentUTCtime</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'> </span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:gainsboro'>=</span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'> </span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:gainsboro'>(</span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'>Get-Date</span><span class=GramE><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>).</span><span
-class=SpellE><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'>ToUniversalTime</span></span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>()</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'># The '<span
-class=SpellE>IsPastDue</span>' property is 'true' when the current function
-invocation is later than scheduled.</span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#569CD6'>if</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'> </span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>(</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#74B0DF'>$<span class=SpellE>Timer<span
-style='color:gainsboro'>.</span><span style='color:#D4D4D4'>IsPastDue</span></span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>)</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'> </span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:gainsboro'>{</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><span
-style='mso-spacerun:yes'>    </span>Write-Host </span><span style='font-size:
-10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#CE9178'>&quot;PowerShell timer is
-running late!&quot;</span><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:gainsboro'>}</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'># Write
-an information log with the current time.</span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#D4D4D4'>Write-Host
-</span><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#CE9178'>&quot;PowerShell
-timer trigger function ran! TIME: </span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#74B0DF'>$<span class=SpellE>currentUTCtime</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#CE9178'>&quot;</span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#D4D4D4'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<ol style='margin-top:0in' start=1 type=1>
- <li class=MsoNormal style='color:white;margin-bottom:0in;line-height:normal;
-     mso-list:l0 level1 lfo1;tab-stops:list .5in;vertical-align:middle'><span
-     style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
-     color:black'>&nbsp;</span><span style='mso-ascii-font-family:Calibri;
-     mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:Calibri;
-     mso-bidi-font-family:Calibri'><o:p></o:p></span></li>
-</ol>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>create <span
-class=GramE>schema&nbsp; <span class=SpellE>microsoft</span></span>;<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>create
+schema&nbsp; microsoft;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1218,12 +1082,13 @@ class=GramE>schema&nbsp; <span class=SpellE>microsoft</span></span>;<o:p></o:p><
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>--View
+creation:<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>CREATE
-VIEW <span class=SpellE><span class=GramE>microsoft.vw</span>_sql_requests</span><o:p></o:p></span></p>
+VIEW microsoft.vw_sql_requests<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1241,65 +1106,64 @@ SELECT<o:p></o:p></span></p>
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.request</span>_id</span>,<o:p></o:p></span></p>
+sr.request_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.step</span>_index</span>,<o:p></o:p></span></p>
+sr.step_index,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-(CASE WHEN (<span class=SpellE><span class=GramE>sr.distribution</span>_id</span>
-= -1 ) THEN (SELECT <span class=SpellE>pdw_node_id</span> FROM <span
-class=SpellE>sys.dm_pdw_nodes</span> WHERE type = 'CONTROL') ELSE <span
-class=SpellE>d.pdw_node_id</span> END) AS <span class=SpellE>pdw_node_id</span>,<o:p></o:p></span></p>
+(CASE WHEN (sr.distribution_id = -1 ) THEN (SELECT pdw_node_id FROM
+sys.dm_pdw_nodes WHERE type = 'CONTROL') ELSE d.pdw_node_id END) AS
+pdw_node_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.distribution</span>_id</span>,<o:p></o:p></span></p>
+sr.distribution_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.status</span></span>,<o:p></o:p></span></p>
+sr.status,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.error</span>_id</span>,<o:p></o:p></span></p>
+sr.error_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.start</span>_time</span>,<o:p></o:p></span></p>
+sr.start_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE>sr.end_time</span>,<o:p></o:p></span></p>
+sr.end_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.total</span>_elapsed_time</span>,<o:p></o:p></span></p>
+sr.total_elapsed_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE>sr.row_count</span>,<o:p></o:p></span></p>
+sr.row_count,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.spid</span></span>,<o:p></o:p></span></p>
+sr.spid,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE><span class=GramE>sr.command</span></span><o:p></o:p></span></p>
+sr.command<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1309,14 +1173,13 @@ FROM<o:p></o:p></span></p>
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=SpellE>sys.pdw_distributions</span> AS d<o:p></o:p></span></p>
+sys.pdw_distributions AS d<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-RIGHT JOIN <span class=SpellE>sys.dm_pdw_sql_requests</span> AS <span
-class=SpellE>sr</span> ON <span class=SpellE><span class=GramE>d.distribution</span>_id</span>
-= <span class=SpellE>sr.distribution_id</span><o:p></o:p></span></p>
+RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id =
+sr.distribution_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1332,13 +1195,9 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>You
 can either invoke the above view or the following to confirm which sessions
-used the most <span class=SpellE>TempDB</span>. <o:p></o:p></span></p>
+used the most TempDB. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>Please
@@ -1351,236 +1210,161 @@ style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>sr.request</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_id</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>ssu.session</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_id</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>ssu.pdw_node_id</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>,<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>        </span><span class=SpellE><span class=GramE>exr.submit</span>_time</span>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>sr.request_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>        </span><span class=SpellE><span class=GramE>exr.start</span>_time</span>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ssu.session_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>        </span><span class=SpellE>exr.end_time</span>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>exr.command</span></span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>sr.total</span></span><span style='font-size:
-10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_elapsed_time</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>exs.login_name</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'> AS '<span class=SpellE>loginName</span>',<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ssu.pdw_node_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>DB_<span
-class=GramE>NAME(</span><span class=SpellE>ssu.database_id</span>) AS '<span
-class=SpellE>DatabaseName</span>',<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exr.submit_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>   </span>(<span class=SpellE><span class=GramE>ssu</span>.user_objects_alloc_page_count</span>
-* 8) AS '<span class=SpellE>Space_Allocated_For_User_Objects_KB</span>',<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exr.start_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(<span
-class=SpellE><span class=GramE>ssu</span>.user_objects_dealloc_page_count</span>
-* 8) AS '<span class=SpellE>Space_Deallocated_For_User_Objects_KB</span>',<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exr.end_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(<span
-class=SpellE><span class=GramE>ssu.internal</span>_objects_alloc_page_count</span>
-* 8) AS '<span class=SpellE>Space_Allocated_For_Internal_Objects_KB</span>',<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exr.command,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(<span
-class=SpellE><span class=GramE>ssu.internal</span>_objects_dealloc_page_count</span>
-* 8) AS '<span class=SpellE>Space_Deallocated_For_Internal_Objects_KB</span>',<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>sr.total_elapsed_time,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>CASE <span
-class=SpellE>es.is_user_process</span><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exs.login_name
+AS 'loginName',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>DB_NAME(ssu.database_id)
+AS 'DatabaseName',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(ssu.user_objects_alloc_page_count
+* 8) AS 'Space_Allocated_For_User_Objects_KB',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(ssu.user_objects_dealloc_page_count
+* 8) AS 'Space_Deallocated_For_User_Objects_KB',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(ssu.internal_objects_alloc_page_count
+* 8) AS 'Space_Allocated_For_Internal_Objects_KB',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(ssu.internal_objects_dealloc_page_count
+* 8) AS 'Space_Deallocated_For_Internal_Objects_KB',<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>CASE
+es.is_user_process<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHEN 1
-THEN 'User Session'<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+THEN 'User Session'<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHEN 0
-THEN 'System Session'<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+THEN 'System Session'<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>END AS
-'<span class=SpellE>SessionType</span>',<span style='mso-spacerun:yes'> 
-</span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>es.row_count</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'> AS '<span class=SpellE>RowCount</span>'<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+'SessionType',<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM <span
-class=SpellE>sys.dm_pdw_nodes_db_session_space_usage</span> AS <span
-class=SpellE>ssu</span><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>es.row_count
+AS 'RowCount'<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM
+sys.dm_pdw_nodes_db_session_space_usage AS ssu <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>INNER
-JOIN <span class=SpellE>sys.dm_pdw_nodes_exec_sessions</span> AS es ON <span
-class=SpellE><span class=GramE>ssu.session</span>_id</span> = <span
-class=SpellE>es.session_id</span> AND <span class=SpellE>ssu.pdw_node_id</span>
-= <span class=SpellE>es.pdw_node_id</span><span style='mso-spacerun:yes'> 
-</span><o:p></o:p></span></p>
+JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND
+ssu.pdw_node_id =es.pdw_node_id <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>INNER
-JOIN <span class=SpellE>sys.dm_pdw_nodes_exec_connections</span> AS er ON <span
-class=SpellE><span class=GramE>ssu.session</span>_id</span> = <span
-class=SpellE>er.session_id</span> AND <span class=SpellE>ssu.pdw_node_id</span>
-= <span class=SpellE>er.pdw_node_id</span><span style='mso-spacerun:yes'> 
-</span><o:p></o:p></span></p>
+JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id
+AND ssu.pdw_node_id = er.pdw_node_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>INNER
-JOIN <span class=SpellE><span class=GramE>microsoft.vw</span>_sql_requests</span>
-AS <span class=SpellE>sr</span> ON <span class=SpellE>ssu.session_id</span> = <span
-class=SpellE>sr.spid</span> AND <span class=SpellE>ssu.pdw_node_id</span> = <span
-class=SpellE>sr.pdw_node_id</span><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND
+ssu.pdw_node_id = sr.pdw_node_id <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>LEFT
-JOIN <span class=SpellE>sys.dm_pdw_exec_requests</span> <span class=SpellE>exr</span>
-on <span class=SpellE><span class=GramE>exr.request</span>_id</span> = <span
-class=SpellE>sr.request_id</span><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+JOIN sys.dm_pdw_exec_requests exr on exr.request_id = sr.request_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>LEFT
-JOIN <span class=SpellE>sys.dm_pdw_exec_sessions</span> <span class=SpellE>exs</span>
-on <span class=SpellE><span class=GramE>exr.session</span>_id</span> = <span
-class=SpellE>exs.session_id</span><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+JOIN sys.dm_pdw_exec_sessions exs on exr.session_id = exs.session_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>WHERE</span></span><span style='font-size:10.5pt;font-family:
-Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'><span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHERE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>exr.end_time</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'> <span class=GramE>IS<span
-style='mso-spacerun:yes'>  </span>NULL</span><span style='mso-spacerun:yes'> 
-</span><o:p></o:p></span></p>
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>exr.end_time
+IS<span style='mso-spacerun:yes'>  </span>NULL<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>DB_NAME(ssu.database_id)
+= 'tempdb'<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND
+exs.session_id &lt;&gt; session_id()<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND
+es.login_name &lt;&gt; 'sa'<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>DB_<span
-class=GramE>NAME(</span><span class=SpellE>ssu.database_id</span>) = '<span
-class=SpellE>tempdb</span>'<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND <span
-class=SpellE><span class=GramE>exs.session</span>_id</span> &lt;&gt; <span
-class=SpellE>session_id</span>()<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>AND <span
-class=SpellE>es.login_name</span> &lt;&gt; '<span class=SpellE>sa</span>'<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>AND<span style='mso-spacerun:yes'>  </span>(</span></span><span
-class=SpellE><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ssu.user_objects_alloc_page_count</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'> * 8) &lt;&gt; 0 or (<span
-class=SpellE>ssu.internal_objects_alloc_page_count</span> * 8) &lt;&gt; 0;<o:p></o:p></span></p>
+style='mso-spacerun:yes'>  </span>(ssu.user_objects_alloc_page_count * 8)
+&lt;&gt; 0 or (ssu.internal_objects_alloc_page_count * 8) &lt;&gt; 0;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -1619,46 +1403,42 @@ need to monitor the overall memory usage, you can leverage the following:<o:p></
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc1.cntr_value as <span class=SpellE>Curr_Mem_KB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc1.cntr_value
+as Curr_Mem_KB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc1.cntr_value/1024.0 as <span class=SpellE>Curr_Mem_MB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc1.cntr_value/1024.0
+as Curr_Mem_MB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>(pc1.cntr_value/1048576.0) as <span
-class=SpellE>Curr_Mem_GB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(pc1.cntr_value/1048576.0)
+as Curr_Mem_GB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc2.cntr_value as <span class=SpellE>Max_Mem_KB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc2.cntr_value
+as Max_Mem_KB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc2.cntr_value/1024.0 as <span class=SpellE>Max_Mem_MB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc2.cntr_value/1024.0
+as Max_Mem_MB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>(pc2.cntr_value/1048576.0) as <span
-class=SpellE>Max_Mem_GB</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(pc2.cntr_value/1048576.0)
+as Max_Mem_GB,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc1.cntr_value * 100.0/pc2.cntr_value AS <span
-class=SpellE>Memory_Utilization_Percentage</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc1.cntr_value
+* 100.0/pc2.cntr_value AS Memory_Utilization_Percentage,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>  </span>pc1.pdw_node_id<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>pc1.pdw_node_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1670,11 +1450,9 @@ style='mso-spacerun:yes'>  </span>pc1.pdw_node_id<o:p></o:p></span></p>
 current memory<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>sys.dm_pdw_nodes_os_performance_counters</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'> AS pc1<o:p></o:p></span></p>
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>sys.dm_pdw_nodes_os_performance_counters
+AS pc1<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1683,8 +1461,8 @@ total memory allowed for this SQL instance<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>JOIN <span
-class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span> AS pc2<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>JOIN
+sys.dm_pdw_nodes_os_performance_counters AS pc2<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1692,11 +1470,8 @@ class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span> AS pc2<o:p></o:p></
 pc1.object_name = pc2.object_name AND pc1.pdw_node_id = pc2.pdw_node_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>WHERE</span></span><span style='font-size:10.5pt;font-family:
-Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'><o:p></o:p></span></p>
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHERE<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1711,16 +1486,16 @@ pc2.counter_name = 'Target Server Memory (KB)'<o:p></o:p></span></p>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
-font-family:"Arial Black",sans-serif;mso-bidi-font-family:Arial'>What’s holding
+font-family:"Arial Black",sans-serif;mso-bidi-font-family:Arial'>Whats holding
 up my query: <o:p></o:p></span></u></b></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-"Times New Roman"'>If a query is not running from the <span class=SpellE>sys.dm_pdw_exec_requests</span>,
+"Times New Roman"'>If a query is not running from the sys.dm_pdw_exec_requests,
 to confirm if it is concurrency related or access to a resource.<o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'>First confirm that the session is in a suspended status
-using <span class=SpellE>sys.dm_pdw_exec_requests</span>: <o:p></o:p></span></p>
+using sys.dm_pdw_exec_requests: <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
  id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
@@ -1742,12 +1517,12 @@ using <span class=SpellE>sys.dm_pdw_exec_requests</span>: <o:p></o:p></span></p>
  </v:formulas>
  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
  <o:lock v:ext="edit" aspectratio="t"/>
-</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1030" type="#_x0000_t75"
+</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1038" type="#_x0000_t75"
  style='width:901.5pt;height:86.25pt;visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image001.png"
   o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1202 height=115
-src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image002.jpg"
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image012.jpg"
 v:shapes="Picture_x0020_1"><![endif]></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
@@ -1759,89 +1534,77 @@ session is waiting on: <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT <span
-class=SpellE><span class=GramE>waits.session</span>_id</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT
+waits.session_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>waits.request</span>_id</span>,
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>waits.request_id,
 <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>requests.command</span></span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>requests.command,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>requests.status</span></span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>requests.status,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>requests.start</span>_time</span>,
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>requests.start_time,
 <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>waits.type</span></span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>waits.type,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>waits.state</span></span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>waits.state,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>waits.object</span>_type</span>,<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>waits.object_type,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>waits.object</span>_name</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>waits.object_name<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM<span
-style='mso-spacerun:yes'>   </span><span class=SpellE>sys.dm_pdw_waits</span> <span
-class=GramE>waits</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM sys.dm_pdw_waits
+waits<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>   </span>JOIN <span class=SpellE>sys.dm_pdw_exec_requests</span>
-requests<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>JOIN
+sys.dm_pdw_exec_requests requests<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>   </span>ON <span class=SpellE><span class=GramE>waits.request</span>_id</span>=<span
-class=SpellE>requests.request_id</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON
+waits.request_id=requests.request_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ORDER
-BY <span class=SpellE><span class=GramE>waits.object</span>_name</span>, <span
-class=SpellE>waits.object_type</span>, <span class=SpellE>waits.state</span>;<o:p></o:p></span></p>
+BY waits.object_name, waits.object_type, waits.state;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif'>If you see the
-state as queued and wait type as “<span class=SpellE>ConcurrencyResourceType</span>”
-that is an indication that you do not have enough concurrency slots to execute
-the query. <span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
- o:spid="_x0000_i1029" type="#_x0000_t75" style='width:1029pt;height:210.75pt;
+state as queued and wait type as “ConcurrencyResourceType” that is an
+indication that you do not have enough concurrency slots to execute the query. <span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+ o:spid="_x0000_i1037" type="#_x0000_t75" style='width:1029pt;height:210.75pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image003.png"
   o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1372 height=281
-src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image004.jpg"
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image013.jpg"
 v:shapes="Picture_x0020_3"><![endif]></span><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
@@ -1859,6 +1622,649 @@ href="https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehous
 style='font-family:"Arial",sans-serif'>Memory and concurrency limits - Azure
 Synapse Analytics | Microsoft Docs</span></a><span style='font-family:"Arial",sans-serif'><o:p></o:p></span></p>
 
+<p class=MsoNormal style='mso-line-height-alt:11.65pt'><b><u><span
+style='font-size:14.0pt;font-family:"Arial Black",sans-serif;mso-bidi-font-family:
+Calibri;color:black'>Workload Group:</span></u></b><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Alternatively,
+to provide more predictable memory and CPU usage. We can leverage Workload
+Groups.<u1:p></u1:p></span><span style='mso-ascii-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>For
+example, lets say we need to reduce the overall memory a particular session is
+using as it seems to be consuming a lot of memory on the overall system.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>We
+can first create a workload group as the below. For this instance, we do not
+want any aggregate of sessions in this group to use more than 50% of the
+overall memory CAP_PERCENTAGE_RESOURCE = 50.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>In
+addition, for each request in this Workload Group, the request is granted a
+minimum of 25% of the overall memory allocated to the Workload group REQUEST_MIN_RESOURCE_GRANT_PERCENT
+= 25.<u1:p></u1:p></span><span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>In
+addition, we do not want a request to use more than 25% of the allocated memory
+to that group REQUEST_MAX_RESOURCE_GRANT_PERCENT = 25.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Its
+important to note the Effective Values metrics from the following link
+depending on the DWs allocated:&nbsp;<a
+href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&amp;preserve-view=true#effective-values">CREATE
+WORKLOAD GROUP (Transact-SQL) - SQL Server | Microsoft Docs</a><u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Because
+this POC is being conducted on a DW100c, the least amount of resource per
+request is 25% of the overall resource for that workload group. We will
+illustrate more below.<u1:p></u1:p></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Please
+note that in most cases unless a very important job requires idle resources
+that no other sessions can use, we will not set the MIN_PERCENTAGE_RESOURCE as
+that pool of resources cannot be shared.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>CREATE
+WORKLOAD GROUP&nbsp;pocsmalltest<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(&nbsp;MIN_PERCENTAGE_RESOURCE
+= 0<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>,
+CAP_PERCENTAGE_RESOURCE = 50<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>,
+REQUEST_MIN_RESOURCE_GRANT_PERCENT = 25<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>,&nbsp;REQUEST_MAX_RESOURCE_GRANT_PERCENT
+= 25<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>,&nbsp;IMPORTANCE&nbsp;=
+LOW<o:p></o:p></span></p>
+
+<u1:p></u1:p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>,&nbsp;QUERY_EXECUTION_TIMEOUT_SEC
+= 0 )<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>;<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Next,
+we will proceed to classify a user to the workload group with the below syntax.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>create
+workload CLASSIFIER&nbsp;pocsmalltestclassifer<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH
+(WORKLOAD_GROUP='pocsmalltest',<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>MEMBERNAME=
+'victor1' ,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>IMPORTANCE=NORMAL)<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Finally,
+we will confirm how much memory is being utilized on the overall system. We
+will be leveraging the following query:&nbsp;</span><span style='font-size:
+10.5pt;line-height:107%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:"Times New Roman";color:#608B4E'>select * from&nbsp;sys.dm_pdw_nodes_resource_governor_resource_pools;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>With
+all sessions idle, we can see the current DWU allocation has a max of around
+55GB with the&nbsp;<span class=spelle>used_memory_kb</span>&nbsp;at 0 for
+DW100c.<u1:p></u1:p></span><span style='mso-ascii-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14" o:spid="_x0000_i1036"
+ type="#_x0000_t75" style='width:978.75pt;height:42.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image014.jpg"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1305 height=57
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image014.jpg"
+v:shapes="Picture_x0020_14"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>However,
+once a session is executing, we can see that 2.9GB of memory has been allocated
+to the single session to process its transaction.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_13" o:spid="_x0000_i1035"
+ type="#_x0000_t75" style='width:22in;height:63pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image015.png"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=2112 height=84
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image015.png"
+v:shapes="Picture_x0020_13"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>But
+what does this mean for concurrent queries?<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Remember,
+DW100c has a max of 4 concurrent queries. Please check the Effective Values
+link for your respective DWU:&nbsp;<a
+href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&amp;preserve-view=true#effective-values">CREATE
+WORKLOAD GROUP (Transact-SQL) - SQL Server | Microsoft Docs</a></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<u1:p></u1:p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><b><u1:p><span style='mso-ascii-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'>&nbsp;</span></u1:p></b><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>As
+we can see below, we can only execute a max of two concurrent queries with the
+current caps.&nbsp;50% of overall resources, with a minimum of 25% per request.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><b style='mso-bidi-font-weight:normal'><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_12"
+ o:spid="_x0000_i1034" type="#_x0000_t75" alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+ style='width:246pt;height:74.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image016.png"
+  o:title="Graphical user interface, application, table&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=328 height=99
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image016.png"
+alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+v:shapes="Picture_x0020_12"><![endif]></span></b><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><b><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span></b><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Now,
+to reinforce the concept of Effective Values for the corresponding DWU
+allocation, lets alter the workload group and reduce the
+REQUEST_MIN_RESOURCE_GRANT_PERCENT &amp; REQUEST_MAX_RESOURCE_GRANT_PERCENT to
+try to use even less resources.<u1:p></u1:p></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ALTER
+WORKLOAD GROUP&nbsp;pocsmalltest<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH
+(REQUEST_MIN_RESOURCE_GRANT_PERCENT = 3,<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>REQUEST_MAX_RESOURCE_GRANT_PERCENT
+= 10<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>)<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>As
+you can see below, we still are allocated the same amount of memory for the
+request, as the least effective value for DW100c is 25%.<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1033"
+ type="#_x0000_t75" style='width:1283.25pt;height:76.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image017.jpg"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1711 height=102
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image017.jpg"
+v:shapes="Picture_x0020_11"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Let
+not forget that concurrent query allowance will be the same as the above as 25%
+is the minimal resource allocation:<u1:p></u1:p></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10" o:spid="_x0000_i1032"
+ type="#_x0000_t75" alt="Table&#10;&#10;Description automatically generated"
+ style='width:261pt;height:73.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image018.png"
+  o:title="Table&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=348 height=98
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image018.png"
+alt="Table&#10;&#10;Description automatically generated" v:shapes="Picture_x0020_10"><![endif]></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='font-variant-ligatures: normal;font-variant-caps: normal;
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Now,
+lets alter the REQUEST_MAX_RESOURCE_GRANT_PERCENT to a higher value:<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ALTER
+WORKLOAD GROUP&nbsp;pocsmalltest<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH
+(REQUEST_MIN_RESOURCE_GRANT_PERCENT = 50,<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>REQUEST_MAX_RESOURCE_GRANT_PERCENT
+= 50<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>)<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>As
+we can see below, the request is now able to leverage 5.5GB of memory. Nearly
+doubling the amount of memory allocated to the session.&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
+color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
+ o:spid="_x0000_i1031" type="#_x0000_t75" style='width:1311.75pt;height:78pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image019.jpg"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=1749 height=104
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image019.jpg"
+v:shapes="Picture_x0020_9"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>However,
+we have essentially reduced the overall number of concurrent transactions by
+increasing the min and max resource percentage, please see below:<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8" o:spid="_x0000_i1030"
+ type="#_x0000_t75" alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+ style='width:261.75pt;height:68.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image020.png"
+  o:title="Graphical user interface, application, table&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=349 height=91
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image020.png"
+alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+v:shapes="Picture_x0020_8"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ALTER
+WORKLOAD GROUP&nbsp;pocsmalltest<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH
+(REQUEST_MIN_RESOURCE_GRANT_PERCENT = 25,<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>REQUEST_MAX_RESOURCE_GRANT_PERCENT
+= 50<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-thickness: initial;
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:
+0px'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>)<u1:p></u1:p><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'><u1:p>&nbsp;</u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black'>Even
+with bringing down the REQUEST_MIN_RESOURCE_GRANT_PERCENT, the concurrency is
+bounded by the max value in the REQUEST_MAX_RESOURCE_GRANT_PERCENT as we only
+can process one request, please see below:<u1:p></u1:p></span><span
+style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+Calibri;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:11.65pt;font-variant-ligatures: normal;
+font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
+text-decoration-thickness: initial;text-decoration-style: initial;text-decoration-color: initial;
+word-spacing:0px'><span style='font-family:"Arial",sans-serif;color:black;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1029"
+ type="#_x0000_t75" alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+ style='width:261.75pt;height:71.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image021.png"
+  o:title="Graphical user interface, application, table&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=349 height=95
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image021.png"
+alt="Graphical user interface, application, table&#10;&#10;Description automatically generated"
+v:shapes="Picture_x0020_2"><![endif]></span><span style='mso-ascii-font-family:
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
+
 <p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
 font-family:"Arial Black",sans-serif;mso-bidi-font-family:Arial'><o:p><span
  style='text-decoration:none'>&nbsp;</span></o:p></span></u></b></p>
@@ -1872,7 +2278,7 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>Remember,
-<span class=SpellE>sys.dm_pdw_exec_requests</span> will have the info as well.<o:p></o:p></span></p>
+sys.dm_pdw_exec_requests will have the info as well.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>To
@@ -1893,7 +2299,7 @@ mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7" o:spid="_x000
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image005.png"
   o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=685 height=166
-src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image006.jpg"
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image022.jpg"
 v:shapes="Picture_x0020_7"><![endif]></span><span style='font-family:"Arial",sans-serif;
 mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
@@ -1902,79 +2308,55 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH <span
-class=SpellE>perms_cte</span> as<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WITH
+perms_cte as<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>(select
-USER_NAME(<span class=SpellE><span class=GramE>p.grantee</span>_principal_id</span>)
-AS <span class=SpellE>principal_name</span>,<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>dp.principal</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_id</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>dp.type</span></span><span style='font-size:
-10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_desc</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'> AS <span class=SpellE>principal_type_desc</span>,<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span style='font-size:10.5pt;font-family:Consolas;
-mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
-color:#608B4E'>p.class_desc</span></span><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>,<o:p></o:p></span></p>
+USER_NAME(p.grantee_principal_id) AS principal_name,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>OBJECT_NAME(<span
-class=SpellE><span class=GramE>p.major</span>_id</span>) AS <span class=SpellE>object_name</span>,<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>p.permission</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_name</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>,<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
-#1E1E1E'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
-font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
-"Times New Roman";color:#608B4E'>p.state</span></span><span style='font-size:
-10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'>_desc</span></span><span
-style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
-mso-bidi-font-family:"Times New Roman";color:#608B4E'> AS <span class=SpellE>permission_state_desc</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>dp.principal_id,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>from <span
-class=SpellE><span class=GramE>sys.database</span>_permissions</span> p<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>dp.type_desc
+AS principal_type_desc,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>p.class_desc,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>OBJECT_NAME(p.major_id)
+AS object_name,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>p.permission_name,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>p.state_desc
+AS permission_state_desc<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+#1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>from
+sys.database_permissions p<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>inner
-JOIN <span class=SpellE><span class=GramE>sys.database</span>_principals</span>
-<span class=SpellE>dp</span><o:p></o:p></span></p>
+JOIN sys.database_principals dp<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>on <span
-class=SpellE><span class=GramE>p.grantee</span>_principal_id</span> = <span
-class=SpellE>dp.principal_id</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>on
+p.grantee_principal_id = dp.principal_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -1982,22 +2364,19 @@ class=SpellE>dp.principal_id</span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT <span
-class=SpellE><span class=GramE>p.principal</span>_name</span>, <span
-class=SpellE>p.principal_type_desc</span>, <span class=SpellE>p.class_desc</span>,
-p.[<span class=SpellE>object_name</span>], <span class=SpellE>p.permission_name</span>,
-<span class=SpellE>p.permission_state_desc</span>, cast(NULL as <span
-class=SpellE>sysname</span>) as <span class=SpellE>role_name</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT
+p.principal_name, p.principal_type_desc, p.class_desc, p.[object_name],
+p.permission_name, p.permission_state_desc, cast(NULL as sysname) as role_name<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM <span
-class=SpellE>perms_cte</span> p<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM
+perms_cte p<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHERE <span
-class=SpellE>principal_type_desc</span> &lt;&gt; 'DATABASE_ROLE'<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>WHERE principal_type_desc
+&lt;&gt; 'DATABASE_ROLE'<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -2005,16 +2384,14 @@ class=SpellE>principal_type_desc</span> &lt;&gt; 'DATABASE_ROLE'<o:p></o:p></spa
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT <span
-class=SpellE><span class=GramE>rm.member</span>_principal_name</span>, <span
-class=SpellE>rm.principal_type_desc</span>, <span class=SpellE>p.class_desc</span>,
-<span class=SpellE>p.object_name</span>, <span class=SpellE>p.permission_name</span>,
-<span class=SpellE>p.permission_state_desc,rm.role_name</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT
+rm.member_principal_name, rm.principal_type_desc, p.class_desc, p.object_name,
+p.permission_name, p.permission_state_desc,rm.role_name<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM <span
-class=SpellE>perms_cte</span> p<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM
+perms_cte p<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -2023,44 +2400,39 @@ outer JOIN (<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>select <span
-class=SpellE>role_principal_id</span>, <span class=SpellE><span class=GramE>dp.type</span>_desc</span>
-as <span class=SpellE>principal_type_desc</span>, <span class=SpellE>member_principal_id,user_name</span>(<span
-class=SpellE>member_principal_id</span>) as <span class=SpellE>member_principal_name,user_name</span>(<span
-class=SpellE>role_principal_id</span>) as <span class=SpellE>role_name</span>--,*<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>select
+role_principal_id, dp.type_desc as principal_type_desc,
+member_principal_id,user_name(member_principal_id) as
+member_principal_name,user_name(role_principal_id) as role_name--,*<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>from <span
-class=SpellE><span class=GramE>sys.database</span>_role_members</span> rm<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>from
+sys.database_role_members rm<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>INNER
-JOIN <span class=SpellE><span class=GramE>sys.database</span>_principals</span>
-<span class=SpellE>dp</span><o:p></o:p></span></p>
+JOIN sys.database_principals dp<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON <span
-class=SpellE><span class=GramE>rm.member</span>_principal_id</span> = <span
-class=SpellE>dp.principal_id</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON
+rm.member_principal_id = dp.principal_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>) <span
-class=GramE>rm</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>) rm<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON <span
-class=SpellE><span class=GramE>rm.role</span>_principal_id</span> = <span
-class=SpellE>p.principal_id</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON
+rm.role_principal_id = p.principal_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
 "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>order
-by <span class=SpellE>principal_name</span><o:p></o:p></span></p>
+by principal_name<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -2075,49 +2447,36 @@ workload classifier verification, you can use the following: <o:p></o:p></span><
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT <span
-class=SpellE><span class=GramE>cl.classifier</span>_id</span>, cl.name, <span
-class=SpellE>cl.group_name</span>, <span class=SpellE>cl.importance</span>, <span
-class=SpellE>det.classifier_type</span>, <span class=SpellE>det.classifier_value</span>,
-<span class=SpellE>cl.is_enabled</span>, <span class=SpellE>us.altuid</span>, <span
-class=SpellE>us.gid</span>, <span class=SpellE>us.hasdbaccess</span>, <span
-class=SpellE>us.islogin</span>, <span class=SpellE>us.isntname</span>, <span
-class=SpellE>us.isntgroup</span>, <span class=SpellE>us.isntuser</span>, <span
-class=SpellE>us.issqluser</span>, <span class=SpellE>us.isaliased</span>, <span
-class=SpellE>us.issqlrole</span>, <span class=SpellE>us.isapprole</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>SELECT
+cl.classifier_id, cl.name, cl.group_name, cl.importance, det.classifier_type,
+det.classifier_value, cl.is_enabled, us.altuid, us.gid, us.hasdbaccess,
+us.islogin, us.isntname, us.isntgroup, us.isntuser, us.issqluser, us.isaliased,
+us.issqlrole, us.isapprole<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>    </span>FROM <span class=SpellE><span class=GramE>sys.workload</span>_management_workload_classifiers</span>
-cl<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>FROM
+sys.workload_management_workload_classifiers cl<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>    </span>INNER JOIN <span class=SpellE><span
-class=GramE>sys.workload</span>_management_workload_classifier_details</span>
-det<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>INNER
+JOIN sys.workload_management_workload_classifier_details det<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>        </span>ON <span class=SpellE><span
-class=GramE>cl.classifier</span>_id</span> = <span class=SpellE>det.classifier_id</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON
+cl.classifier_id = det.classifier_id<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>    </span>LEFT JOIN <span class=SpellE><span
-class=GramE>sys.sysusers</span></span> us<span style='mso-spacerun:yes'>   
-</span><o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>LEFT
+JOIN sys.sysusers us<span style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
-"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'><span
-style='mso-spacerun:yes'>        </span>ON <span class=SpellE><span
-class=GramE>det.classifier</span>_type</span> = '<span class=SpellE>membername</span>'
-and <span class=SpellE>det.classifier_value</span> = us.name;<o:p></o:p></span></p>
+"Times New Roman";mso-bidi-font-family:"Times New Roman";color:#608B4E'>ON
+det.classifier_type = 'membername' and det.classifier_value = us.name;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
 #1E1E1E'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
@@ -2144,7 +2503,7 @@ queries, as you can the active queries. <o:p></o:p></span></p>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image007.png"
   o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1233 height=406
-src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image008.jpg"
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image023.jpg"
 v:shapes="Picture_x0020_4"><![endif]></span></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
@@ -2169,7 +2528,7 @@ v:shapes="Picture_x0020_6"><![endif]></span></p>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image010.png"
   o:title=""/>
 </v:shape><![endif]--><![if !vml]><img border=0 width=1436 height=225
-src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image011.jpg"
+src="Azure%20Synapse%20SQL%20Pool%20Resource%20Monitoring_files/image024.jpg"
 v:shapes="Picture_x0020_5"><![endif]></span></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
