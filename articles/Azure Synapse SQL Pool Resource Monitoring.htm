@@ -27,9 +27,9 @@ w\:* {behavior:url(#default#VML);}
   <o:LastAuthor>Victor Adeyanju</o:LastAuthor>
   <o:Revision>2</o:Revision>
   <o:TotalTime>12</o:TotalTime>
-  <o:Created>2022-10-22T21:28:00Z</o:Created>
-  <o:LastSaved>2022-10-22T21:28:00Z</o:LastSaved>
-  <o:Pages>10</o:Pages>
+  <o:Created>2022-10-22T21:37:00Z</o:Created>
+  <o:LastSaved>2022-10-22T21:37:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
   <o:Words>1569</o:Words>
   <o:Characters>8949</o:Characters>
   <o:Lines>74</o:Lines>
@@ -1033,39 +1033,58 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
-color:#DCC6E0'>SELECT</span><span style='font-family:"Courier New";color:#F8F8F2'>
+color:#DCC6E0'>SELECT</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
 pc1.cntr_value </span><span style='font-family:"Courier New";color:#DCC6E0'>as</span><span
-style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Curr_Mem_KB</span>,
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Curr_Mem_KB</span>,<br>
 pc1.cntr_value/</span><span style='font-family:"Courier New";color:#F5AB35'>1024.0</span><span
 style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
 "Courier New";color:#DCC6E0'>as</span><span style='font-family:"Courier New";
-color:#F8F8F2'> <span class=SpellE>Curr_Mem_MB</span>, (pc1.cntr_value/</span><span
-style='font-family:"Courier New";color:#F5AB35'>1048576.0</span><span
+color:#F8F8F2'> <span class=SpellE>Curr_Mem_MB</span>,<br>
+(pc1.cntr_value/</span><span style='font-family:"Courier New";color:#F5AB35'>1048576.0</span><span
 style='font-family:"Courier New";color:#F8F8F2'>) </span><span
 style='font-family:"Courier New";color:#DCC6E0'>as</span><span
-style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Curr_Mem_GB</span>,
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Curr_Mem_GB</span>,<br>
 pc2.cntr_value </span><span style='font-family:"Courier New";color:#DCC6E0'>as</span><span
-style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Max_Mem_KB</span>,
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Max_Mem_KB</span>,<br>
 pc2.cntr_value/</span><span style='font-family:"Courier New";color:#F5AB35'>1024.0</span><span
 style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
 "Courier New";color:#DCC6E0'>as</span><span style='font-family:"Courier New";
-color:#F8F8F2'> <span class=SpellE>Max_Mem_MB</span>, (pc2.cntr_value/</span><span
-style='font-family:"Courier New";color:#F5AB35'>1048576.0</span><span
+color:#F8F8F2'> <span class=SpellE>Max_Mem_MB</span>,<br>
+(pc2.cntr_value/</span><span style='font-family:"Courier New";color:#F5AB35'>1048576.0</span><span
 style='font-family:"Courier New";color:#F8F8F2'>) </span><span
 style='font-family:"Courier New";color:#DCC6E0'>as</span><span
-style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Max_Mem_GB</span>,
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Max_Mem_GB</span>,<br>
 pc1.cntr_value * </span><span style='font-family:"Courier New";color:#F5AB35'>100.0</span><span
 style='font-family:"Courier New";color:#F8F8F2'>/pc2.cntr_value </span><span
 style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
-style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Memory_Utilization_Percentage</span>,
-pc1.pdw_node_id </span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
-style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
-"Courier New";color:#D4D0AB'>-- pc1: current memory <span class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span>
-AS pc1 -- pc2: total memory allowed for this SQL instance JOIN <span
-class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span> AS pc2 ON
-pc1.object_name = pc2.object_name AND pc1.pdw_node_id = pc2.pdw_node_id WHERE
-pc1.counter_name = 'Total Server Memory (KB)' AND pc2.counter_name = 'Target
-Server Memory (KB)'</span></p>
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>Memory_Utilization_Percentage</span>,<br>
+pc1.pdw_node_id<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>-- pc1: current
+memory</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> pc1<br>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>-- pc2: total
+memory allowed for this SQL instance</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.dm_pdw_nodes_os_performance_counters</span>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> pc2<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> pc1.object_name =
+pc2.object_name </span><span style='font-family:"Courier New";color:#DCC6E0'>AND</span><span
+style='font-family:"Courier New";color:#F8F8F2'> pc1.pdw_node_id =
+pc2.pdw_node_id<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>WHERE</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+pc1.counter_name = </span><span style='font-family:"Courier New";color:#ABE338'>'Total
+Server Memory (KB)'</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AND</span><span
+style='font-family:"Courier New";color:#F8F8F2'> pc2.counter_name = </span><span
+style='font-family:"Courier New";color:#ABE338'>'Target Server Memory (KB)'</span></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
@@ -1396,8 +1415,8 @@ style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font
 Calibri;color:black'><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;color:black'>Now,
-to reinforce the concept of Effective Values for the corresponding DWU
-allocation, lets alter the workload group and reduce the REQUEST_MIN_RESOURCE_GRANT_PERCENT
+to reinforce the concept of Effective Values for the corresponding DWU allocation,
+lets alter the workload group and reduce the REQUEST_MIN_RESOURCE_GRANT_PERCENT
 &amp; REQUEST_MAX_RESOURCE_GRANT_PERCENT to try to use even less resources.</span><span
 style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
 Calibri;color:black'><o:p></o:p></span></p>
@@ -1491,8 +1510,8 @@ color:black'>&nbsp;</span><span style='mso-ascii-font-family:Calibri;
 mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
-color:black'>As we can see below, the request is now able to leverage 5.5GB of memory.
-Nearly doubling the amount of memory allocated to the session.&nbsp;<o:p></o:p></span></p>
+color:black'>As we can see below, the request is now able to leverage 5.5GB of
+memory. Nearly doubling the amount of memory allocated to the session.&nbsp;<o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
 color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
@@ -1510,9 +1529,9 @@ color:black'>&nbsp;</span><span style='mso-ascii-font-family:Calibri;
 mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
-color:black'>However, we have essentially reduced the overall number of
-concurrent transactions by increasing the min and max resource percentage,
-please see below:</span><span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+color:black'>However, we have essentially reduced the overall number of concurrent
+transactions by increasing the min and max resource percentage, please see
+below:</span><span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
 Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
@@ -1551,10 +1570,10 @@ mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
 color:black'>Even with bringing down the REQUEST_MIN_RESOURCE_GRANT_PERCENT,
-the concurrency is bounded by the max value in the REQUEST_MAX_RESOURCE_GRANT_PERCENT
-as we only can process one request, please see below:</span><span
-style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
-Calibri;color:black'><o:p></o:p></span></p>
+the concurrency is bounded by the max value in the
+REQUEST_MAX_RESOURCE_GRANT_PERCENT as we only can process one request, please
+see below:</span><span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+Calibri;mso-bidi-font-family:Calibri;color:black'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:11.65pt'><span style='font-family:"Arial",sans-serif;
 color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2"
