@@ -1,12 +1,11 @@
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
 xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 15">
 <meta name=Originator content="Microsoft Word 15">
@@ -26,16 +25,16 @@ w\:* {behavior:url(#default#VML);}
   <o:Author>Victor Adeyanju</o:Author>
   <o:Template>Normal</o:Template>
   <o:LastAuthor>Victor Adeyanju</o:LastAuthor>
-  <o:Revision>3</o:Revision>
-  <o:TotalTime>143</o:TotalTime>
-  <o:Created>2022-04-13T01:44:00Z</o:Created>
-  <o:LastSaved>2022-04-13T01:47:00Z</o:LastSaved>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>138</o:TotalTime>
+  <o:Created>2022-10-22T22:27:00Z</o:Created>
+  <o:LastSaved>2022-10-22T22:27:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
-  <o:Words>1141</o:Words>
-  <o:Characters>6505</o:Characters>
-  <o:Lines>54</o:Lines>
+  <o:Words>1123</o:Words>
+  <o:Characters>6403</o:Characters>
+  <o:Lines>53</o:Lines>
   <o:Paragraphs>15</o:Paragraphs>
-  <o:CharactersWithSpaces>7631</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>7511</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -48,6 +47,8 @@ href="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/themedata.
 href="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/colorschememapping.xml">
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:PunctuationKerning/>
@@ -672,7 +673,7 @@ href="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/colorschem
 	mso-font-charset:0;
 	mso-generic-font-family:roman;
 	mso-font-pitch:variable;
-	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+	mso-font-signature:3 0 0 0 1 0;}
 @font-face
 	{font-family:Calibri;
 	panose-1:2 15 5 2 2 2 4 3 2 4;
@@ -739,6 +740,12 @@ p
 	font-size:12.0pt;
 	font-family:"Times New Roman",serif;
 	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
 .MsoChpDefault
 	{mso-style-type:export-only;
 	mso-default-props:yes;
@@ -816,7 +823,7 @@ force the optimizer to perform certain operations that an engineer may deem to b
 more optimal. The example below will show you how a query that can potentially
 take over an hour to run will run around 15 minutes by leveraging a query hint.
 Enforcing the importance of query hints in a Data Engineers repertoire. <span
-style='mso-spacerun:yes'></span><o:p></o:p></span></p>
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -826,151 +833,153 @@ mso-fareast-font-family:"Times New Roman"'>Test Case: <o:p></o:p></span></u></b>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'>In this test case, we have the below query that takes over
-an hour to execute on a DW100c instance. We are leveraging a large resource class
-to execute the query as well. Result set cache is disabled from the session
-level to ensure cache data is not being used. <o:p></o:p></span></p>
+an hour to execute on a DW100c instance. We are leveraging a large resource
+class to execute the query as well. Result set cache is disabled from the
+session level to ensure cache data is not being used. <o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>------------------------------------------Start----------------------------------------------<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>SET
-RESULT_SET_CACHING OFF<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>SELECT<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
-p.[EnglishProductName]) AS [Model]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.City AS ResellerCity<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
-Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>END AS FiscalYear -- Fiscal year runs from
-Jul to June)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Approx_count_distinct(f.SalesOrderNumber)
-AS UniqueOrders<span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>FROM<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimReseller] r<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimGeography] g<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimProduct] p<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>GROUP
-BY<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
-p.[EnglishProductName])<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.City<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.StateProvinceName<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
-Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>END<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Month(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ORDER
-BY Amount DESC<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>------------------------------------------End----------------------------------------------<o:p></o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='color:white;
+mso-color-alt:windowtext'><br>
+</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>------------------------------------------Start----------------------------------------------</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>SET</span><span
+style='font-family:"Courier New";color:#F8F8F2'> RESULT_SET_CACHING </span><span
+style='font-family:"Courier New";color:#DCC6E0'>OFF</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>SELECT</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>Coalesce</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(p.[<span class=SpellE>ModelName</span>], p.[<span class=SpellE>EnglishProductName</span>])
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [</span><span
+style='font-family:"Courier New";color:#DCC6E0'>Model</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.City</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>ResellerCity</span><br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.StateProvinceName</span>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>StateProvince</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Year</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>CalendarYear</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>CASE</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>WHEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
+&lt; </span><span style='font-family:"Courier New";color:#F5AB35'>7</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>THEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>ELSE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
++ </span><span style='font-family:"Courier New";color:#F5AB35'>1</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>END</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>FiscalYear</span>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>-- Fiscal year
+runs from Jul to June)</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Month</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [</span><span
+style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Sum</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderQuantity</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> Quantity<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Sum</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.ExtendedAmount</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> Amount<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>Approx_count_distinct</span>(<span
+class=SpellE>f.SalesOrderNumber</span>) </span><span style='font-family:"Courier New";
+color:#DCC6E0'>AS</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>UniqueOrders</span><span style='mso-spacerun:yes'>  </span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>[<span class=SpellE>dbo</span>].[<span
+class=SpellE>FactResellerSales_HASH_CCI</span>] f<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimReseller</span>]
+r<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>f.ResellerKey</span> = <span class=SpellE>r.ResellerKey</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimGeography</span>]
+g<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>r.GeographyKey</span> = <span class=SpellE>g.GeographyKey</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimProduct</span>]
+p<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'>
+f.[<span class=SpellE>ProductKey</span>] = p.[<span class=SpellE>ProductKey</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>GROUP</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>BY</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>Coalesce</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(p.[<span class=SpellE>ModelName</span>], p.[<span class=SpellE>EnglishProductName</span>])<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.City</span><br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.StateProvinceName</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Year</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>CASE</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>WHEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
+&lt; </span><span style='font-family:"Courier New";color:#F5AB35'>7</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>THEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>ELSE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
++ </span><span style='font-family:"Courier New";color:#F5AB35'>1</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>END</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Month</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ORDER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>BY</span><span style='font-family:"Courier New";
+color:#F8F8F2'> Amount </span><span style='font-family:"Courier New";
+color:#DCC6E0'>DESC</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>------------------------------------------End----------------------------------------------</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -978,7 +987,12 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
-
+<p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman"'>We first purposely neglect to create any user defined statistics
+and disabled the auto creation of system statistics on the database to also
+reinforce the importance of statistics on the data warehouse system. Within 25 minutes
+of executing, we received a “Msg 1105, Level 16, State 2, Line 31” indicating
+that <span class=SpellE>TempDB</span> could not allocate any additional space. <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-no-proof:
 yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
@@ -1001,12 +1015,12 @@ yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
  </v:formulas>
  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
  <o:lock v:ext="edit" aspectratio="t"/>
-</v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_i1029" type="#_x0000_t75"
- style='width:1320pt;height:98.25pt;visibility:visible;mso-wrap-style:square'>
+</v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_i1028" type="#_x0000_t75"
+ style='width:1228.5pt;height:91.5pt;visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image001.png"
   o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=1760 height=131
-src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image006.jpg"
+</v:shape><![endif]--><![if !vml]><img width=1638 height=122
+src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image002.jpg"
 v:shapes="Picture_x0020_2"><![endif]></span><span style='font-family:"Arial",sans-serif;
 mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
@@ -1014,196 +1028,209 @@ mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-"Times New Roman"'>As you can see above, the importance of statistics. The system is throwing TempDB space allocation errors by having a lack of statistics present. 
-Statistics are an integral part of query optimization. 
-<o:p></o:p></span></p>
+"Times New Roman"'>We proceed to create statistics with a sample size of 50% to
+confirm if we can at least get the query to run and not fail. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#D4D0AB'>------------------------------------------Start----------------------------------------------</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>FactResellerSales_HASH_CCI_ord_nq</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'>
+[dbo].[FactResellerSales_HASH_CCI]([OrderDate],OrderQuantity,ExtendedAmount<span
+style='mso-spacerun:yes'>  </span>) </span><span style='font-family:"Courier New";
+color:#DCC6E0'>WITH</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>SAMPLE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#F5AB35'>50</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>PERCENT</span><span
+style='font-family:"Courier New";color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>FactResellerSales_HASH_CCI_prodk</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>FactResellerSales_HASH_CCI</span>]([<span class=SpellE>ProductKey</span>]
+) </span><span style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>FactResellerSales_HASH_CCI_resek</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>FactResellerSales_HASH_CCI</span>]([<span class=SpellE>ResellerKey</span>]
+) </span><span style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimReseller_resek_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimReseller</span>]([<span class=SpellE>ResellerKey</span>] ) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimReseller_geogr_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimReseller</span>]([<span class=SpellE>GeographyKey</span>] ) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimGeography_geogr_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimGeography</span>](<span class=SpellE>GeographyKey</span> ) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimGeography_city_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimGeography</span>](City ) </span><span style='font-family:"Courier New";
+color:#DCC6E0'>WITH</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>SAMPLE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#F5AB35'>50</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>PERCENT</span><span
+style='font-family:"Courier New";color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimGeography_engprod_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimGeography</span>](<span class=SpellE>EnglishProductName</span>
+) </span><span style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimProduct_prodkey_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimProduct</span>]([<span class=SpellE>ProductKey</span>] ) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimProduct_prodname_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimProduct</span>]([<span class=SpellE>EnglishProductName</span>]
+) </span><span style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>CREATE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>STATISTICS</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>DimProduct_ModelName_stat</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span
+class=SpellE>DimProduct</span>]([<span class=SpellE>ModelName</span>] ) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>WITH</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>SAMPLE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#F5AB35'>50</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>PERCENT</span><span style='font-family:"Courier New";
+color:#F8F8F2'>;<br>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>------------------------------------------End----------------------------------------------</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-  "Times New Roman"'>We proceed to create statistics with a sample size of 50% to
-  ensure appropriate statistics for the test case. <o:p></o:p></span></p>
-
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>------------------------------------------Start----------------------------------------------<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [FactResellerSales_HASH_CCI_ord_nq]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[FactResellerSales_HASH_CCI]([OrderDate],OrderQuantity,ExtendedAmount<span
-style='mso-spacerun:yes'> </span>) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [FactResellerSales_HASH_CCI_prodk]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[FactResellerSales_HASH_CCI]([ProductKey] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [FactResellerSales_HASH_CCI_resek]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[FactResellerSales_HASH_CCI]([ResellerKey] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimReseller_resek_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimReseller]([ResellerKey] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimReseller_geogr_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimReseller]([GeographyKey] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimGeography_geogr_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimGeography](GeographyKey ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimGeography_city_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimGeography](City ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimGeography_engprod_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimGeography](EnglishProductName ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimProduct_prodkey_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimProduct]([ProductKey] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimProduct_prodname_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimProduct]([EnglishProductName] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>CREATE
-STATISTICS [DimProduct_ModelName_stat]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ON
-[dbo].[DimProduct]([ModelName] ) WITH SAMPLE 50 PERCENT;<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>------------------------------------------End----------------------------------------------<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>While
-the query is able to run, we are unable to get it to run within an hour before our
-ETL loading job need to remove sessions and run. <o:p></o:p></span></p>
+the query <span class=GramE>is able to</span> run, we are unable to get it to
+run within an hour before our ETL loading job need to remove sessions and run. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>As
-you can see below, there are three expensive sort operations which are taking predominately
-most of the cost of the query. <o:p></o:p></span></p>
+you can see below, there are three expensive sort operations which are taking
+predominately most of the cost of the query. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>First
-half of query plan: <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
 style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
-mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9" o:spid="_x0000_i1028"
- type="#_x0000_t75" style='width:1576.5pt;height:477.75pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image009.png"
-  o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=2102 height=637
-src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image009.png"
-v:shapes="Picture_x0020_9"><![endif]></span><span style='font-family:"Arial",sans-serif;
-mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
-mso-no-proof:yes'>Second half of plan: <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
-mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1027"
- type="#_x0000_t75" style='width:421.5pt;height:186pt;visibility:visible;
- mso-wrap-style:square'>
- <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image010.png"
-  o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=562 height=248
-src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image008.jpg"
-v:shapes="Picture_x0020_11"><![endif]></span><span style='font-family:"Arial",sans-serif;
-mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_i1027"
+ type="#_x0000_t75" alt="Chart&#10;&#10;Description automatically generated"
+ style='width:468.75pt;height:135.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image003.png"
+  o:title="Chart&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img width=625 height=181
+src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image004.png"
+alt="Chart&#10;&#10;Description automatically generated" v:shapes="Picture_x0020_6"><![endif]></span><span
+style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -1211,176 +1238,173 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'>We proceed to adjust the query and add the HASH GROUP hint
 to force the optimizer to perform a hash aggregate with the grouping data. We
-now see instead of three sort operations, the data is only sorted at the end and
-only once. In addition, the query only takes 15 minutes to complete. Which is a
-huge performance improvement for our runtimes, which fits into the ETL window. In 
-addition, we were able to produce the same exact runtime in the small resource class. 
-Showing that throwing additional resources to a session is not always the answer. <o:p></o:p></span></p>
+now see instead of three sort <span class=GramE>operations,</span> the data is
+only sorted at the end and only once. In addition, the query only takes 15
+minutes to complete. Which is a huge performance improvement for our runtimes,
+which fits into the ETL window. <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
- o:spid="_x0000_i1026" type="#_x0000_t75" style='width:228.75pt;height:51.75pt;
+ o:spid="_x0000_i1026" type="#_x0000_t75" style='width:182.25pt;height:41.25pt;
  visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image005.png"
   o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=305 height=69
-src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image011.jpg"
+</v:shape><![endif]--><![if !vml]><img width=243 height=55
+src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image005.png"
 v:shapes="Picture_x0020_7"><![endif]></span><span style='font-family:"Arial",sans-serif;
 mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>SELECT<o:p></o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#DCC6E0'>SELECT</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>Coalesce</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(p.[<span class=SpellE>ModelName</span>], p.[<span class=SpellE>EnglishProductName</span>])
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [</span><span
+style='font-family:"Courier New";color:#DCC6E0'>Model</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.City</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>ResellerCity</span><br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.StateProvinceName</span>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>StateProvince</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Year</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>CalendarYear</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>CASE</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>WHEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
+&lt; </span><span style='font-family:"Courier New";color:#F5AB35'>7</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>THEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>ELSE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
++ </span><span style='font-family:"Courier New";color:#F5AB35'>1</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>END</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>FiscalYear</span>
+</span><span style='font-family:"Courier New";color:#D4D0AB'>-- Fiscal year
+runs from Jul to June)</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Month</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> [</span><span
+style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Sum</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderQuantity</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> Quantity<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Sum</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.ExtendedAmount</span>) </span><span
+style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> Amount<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>Approx_count_distinct</span>(<span
+class=SpellE>f.SalesOrderNumber</span>) </span><span style='font-family:"Courier New";
+color:#DCC6E0'>AS</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>UniqueOrders</span><span style='mso-spacerun:yes'>  </span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>[<span class=SpellE>dbo</span>].[<span
+class=SpellE>FactResellerSales_HASH_CCI</span>] f<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimReseller</span>]
+r<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>f.ResellerKey</span> = <span class=SpellE>r.ResellerKey</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimGeography</span>]
+g<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'> <span
+class=SpellE>r.GeographyKey</span> = <span class=SpellE>g.GeographyKey</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>INNER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>JOIN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> [<span class=SpellE>dbo</span>].[<span class=SpellE>DimProduct</span>]
+p<br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>ON</span><span style='font-family:"Courier New";color:#F8F8F2'> f.[<span
+class=SpellE>ProductKey</span>] = p.[<span class=SpellE>ProductKey</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>GROUP</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>BY</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>Coalesce</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(p.[<span class=SpellE>ModelName</span>], p.[<span class=SpellE>EnglishProductName</span>])<br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.City</span><br>
+<span style='mso-spacerun:yes'>    </span>,<span class=SpellE>g.StateProvinceName</span><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Year</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>CASE</span><span style='font-family:"Courier New";
+color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>WHEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Month</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
+&lt; </span><span style='font-family:"Courier New";color:#F5AB35'>7</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>THEN</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-family:
+"Courier New";color:#DCC6E0'>ELSE</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>Year</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)
++ </span><span style='font-family:"Courier New";color:#F5AB35'>1</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span></span><span style='font-family:"Courier New";
+color:#DCC6E0'>END</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+<span style='mso-spacerun:yes'>    </span>,</span><span style='font-family:
+"Courier New";color:#DCC6E0'>Month</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(<span class=SpellE>f.OrderDate</span>)<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>ORDER</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>BY</span><span style='font-family:"Courier New";
+color:#F8F8F2'> Amount </span><span style='font-family:"Courier New";
+color:#DCC6E0'>DESC</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>OPTION</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(</span><span style='font-family:
+"Courier New";color:#DCC6E0'>HASH</span><span style='font-family:"Courier New";
+color:#F8F8F2'> </span><span style='font-family:"Courier New";color:#DCC6E0'>GROUP</span><span
+style='font-family:"Courier New";color:#F8F8F2'>)</span></p>
 
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
-p.[EnglishProductName]) AS [Model]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.City AS ResellerCity<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.StateProvinceName AS StateProvince<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Year(f.OrderDate) AS CalendarYear<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
-Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>END AS FiscalYear -- Fiscal year runs from
-Jul to June)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Month(f.OrderDate) AS [Month]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Sum(f.OrderQuantity) AS Quantity<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Sum(f.ExtendedAmount) AS Amount<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Approx_count_distinct(f.SalesOrderNumber)
-AS UniqueOrders<span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>FROM<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>[dbo].[FactResellerSales_HASH_CCI] f<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimReseller] r<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON f.ResellerKey = r.ResellerKey<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimGeography] g<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON r.GeographyKey = g.GeographyKey<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>INNER
-JOIN [dbo].[DimProduct] p<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ON f.[ProductKey] = p.[ProductKey]<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>GROUP
-BY<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>Coalesce(p.[ModelName],
-p.[EnglishProductName])<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.City<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,g.StateProvinceName<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,CASE<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>WHEN Month(f.OrderDate) &lt; 7 THEN
-Year(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>ELSE Year(f.OrderDate) + 1<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>END<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><span
-style='mso-spacerun:yes'> </span>,Month(f.OrderDate)<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>ORDER
-BY Amount DESC<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
-background:yellow;mso-highlight:yellow'>OPTION(HASH GROUP)</span><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
-
-<p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'>Plan
-with query hint: <o:p></o:p></span></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-"Times New Roman";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
- o:spid="_x0000_i1025" type="#_x0000_t75" style='width:1354.5pt;height:393.75pt;
- visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image012.png"
-  o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=1806 height=525
-src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image012.png"
-v:shapes="Picture_x0020_15"><![endif]></span><span style='font-family:"Arial",sans-serif;
+"Times New Roman";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5"
+ o:spid="_x0000_i1025" type="#_x0000_t75" alt="Chart&#10;&#10;Description automatically generated with medium confidence"
+ style='width:529.5pt;height:158.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image006.png"
+  o:title="Chart&#10;&#10;Description automatically generated with medium confidence"/>
+</v:shape><![endif]--><![if !vml]><img width=706 height=211
+src="Azure%20Synapse%20SQL%20Pool%20Query%20Hint%20Performance_files/image007.png"
+alt="Chart&#10;&#10;Description automatically generated with medium confidence"
+v:shapes="Picture_x0020_5"><![endif]></span><span style='font-family:"Arial",sans-serif;
 mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
@@ -1390,21 +1414,22 @@ mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 mso-fareast-font-family:"Times New Roman"'>Conclusion: <o:p></o:p></span></u></b></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
-"Times New Roman"'>As we have seen above, query hints play an integral role in
-truly enhancing workloads. We went from over an hour runtime, to around 15
-minutes. Its important for Data Engineers to exhaust all optimization options to
-ensure a performant running query in a data warehouse . <o:p></o:p></span></p>
+"Times New Roman"'>As we have seen above, query hints play an integral role in truly
+enhancing workloads. We went from over an hour runtime, to around 15 minutes.
+It’s important for Data Engineers to exhaust all optimization options to ensure
+a performant running query in a data warehouse. <o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'>Rule of thumb, for group by and order by queries, confirm if
-OPTION(HASH GROUP) would allow for further optimization. For statements with
-several join operations, using smaller dimension tables as the leading table in
-the join, confirm if OPTION(FORCE ORDER) would enhance the query run times. For
-a list of additional query hints, please visit: </span><span style='font-family:
-"Arial",sans-serif'><a
-href="https://docs.microsoft.com/en-us/sql/t-sql/queries/option-clause-transact-sql?view=sql-server-ver15">OPTION
-Clause (Transact-SQL) - SQL Server | Microsoft Docs</a></span><span
-style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+<span class=GramE>OPTION(</span>HASH GROUP) would allow for further
+optimization. For statements with several join operations, using smaller
+dimension tables as the leading table in the join, confirm if <span
+class=GramE>OPTION(</span>FORCE ORDER) would enhance the query run times. For a
+list of additional query hints, please visit: </span><a
+href="https://docs.microsoft.com/en-us/sql/t-sql/queries/option-clause-transact-sql?view=sql-server-ver15"><span
+style='font-family:"Arial",sans-serif'>OPTION Clause (Transact-SQL) - SQL
+Server | Microsoft Docs</span></a><span style='font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
@@ -1413,18 +1438,18 @@ style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'
 </span></u></b><span style='font-family:"Segoe UI Light",sans-serif'>Sample
 Code is provided for the purpose of illustration only and is not intended to be
 used in a production environment unless thorough testing has been conducted by
-the app and database teams. THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE
-PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
-AND/OR FITNESS FOR A PARTICULAR PURPOSE. We grant You a nonexclusive,
-royalty-free right to use and modify the Sample Code and to reproduce and
-distribute the object code form of the Sample Code, provided that. You agree:
-(i) to not use Our name, logo, or trademarks to market Your software product in
-which the Sample Code is embedded; (ii) to include a valid copyright notice on
-Your software product in which the Sample Code is embedded; and (iii) to
-indemnify, hold harmless, and defend Us and Our suppliers from and against any
-claims or lawsuits, including attorneys fees, that arise or result from the
-use or distribution or use of the Sample Code.</span><o:p></o:p></p>
+the app and database teams. THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED
+&quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+FITNESS FOR A PARTICULAR PURPOSE. We grant You a nonexclusive, royalty-free
+right to use and modify the Sample Code and to reproduce and distribute the
+object code form of the Sample Code, provided that. You agree: (<span
+class=SpellE>i</span>) to not use Our name, logo, or trademarks to market Your
+software product in which the Sample Code is embedded; (ii) to include a valid
+copyright notice on Your software product in which the Sample Code is embedded;
+and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and
+against any claims or lawsuits, including attorneys’ fees, that arise or result
+from the use or distribution or use of the Sample Code.</span></p>
 
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif;mso-fareast-font-family:
 "Times New Roman"'><o:p>&nbsp;</o:p></span></p>
