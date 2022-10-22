@@ -1,13 +1,11 @@
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
 xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
 xmlns="http://www.w3.org/TR/REC-html40">
-<link rel="icon" href="Azure-Synapse-Analytics.svg" type="image/x-icon" >
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 15">
 <meta name=Originator content="Microsoft Word 15">
@@ -28,9 +26,9 @@ w\:* {behavior:url(#default#VML);}
   <o:Template>Normal</o:Template>
   <o:LastAuthor>Victor Adeyanju</o:LastAuthor>
   <o:Revision>2</o:Revision>
-  <o:TotalTime>5</o:TotalTime>
-  <o:Created>2022-02-10T00:48:00Z</o:Created>
-  <o:LastSaved>2022-02-10T00:48:00Z</o:LastSaved>
+  <o:TotalTime>6</o:TotalTime>
+  <o:Created>2022-10-22T21:53:00Z</o:Created>
+  <o:LastSaved>2022-10-22T21:53:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
   <o:Words>395</o:Words>
   <o:Characters>2254</o:Characters>
@@ -675,7 +673,7 @@ href="Azure%20Synapse%20SQL%20Pool%20Statistics_files/colorschememapping.xml">
 	mso-font-charset:0;
 	mso-generic-font-family:roman;
 	mso-font-pitch:variable;
-	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+	mso-font-signature:3 0 0 0 1 0;}
 @font-face
 	{font-family:Calibri;
 	panose-1:2 15 5 2 2 2 4 3 2 4;
@@ -799,147 +797,152 @@ Synapse SQL Pool Statistics<o:p></o:p></span></p>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><u><span style='font-size:14.0pt;line-height:107%;
-font-family:"Arial Black",sans-serif;mso-bidi-font-family:Arial'>Verify your statistics:
-<o:p></o:p></span></u></p>
+font-family:"Arial Black",sans-serif;mso-bidi-font-family:Arial'>Verify your
+statistics: <o:p></o:p></span></u></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;<o:p></o:p></span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>SELECT
-sm.[<span class=GramE>name]&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>schema_name</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-tb.[name]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>table_name</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; <span
-class=SpellE>st.</span>[name]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>stats_name</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; <span
-class=SpellE>st.</span>[<span class=SpellE>filter_definition</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>stats_filter_definition</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp; &nbsp;<span
-class=SpellE>st.</span>[<span class=SpellE>has_filter</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>stats_is_filtered</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-STATS_DATE(<span class=SpellE>st.</span>[<span class=SpellE>object_id</span>],<span
-class=SpellE>st.</span>[<span class=SpellE>stats_id</span>])<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span class=GramE>AS[</span><span class=SpellE>stats_last_updated_date</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; co.[name]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>stats_column_name</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-ty.[name]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_type</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; co.[<span
-class=SpellE>max_length</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_max_length</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-co.[precision]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_precision</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#DCC6E0'>SELECT</span><span style='font-family:"Courier New";color:#F8F8F2'>
+sm.[</span><span style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>schema_name</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tb.[</span><span style='font-family:"Courier New";
+color:#DCC6E0'>name</span><span style='font-family:"Courier New";color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>table_name</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE>st.</span>[</span><span
+style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>stats_name</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE>st.</span>[<span
+class=SpellE>filter_definition</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>stats_filter_definition</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<span class=SpellE>st.</span>[<span
+class=SpellE>has_filter</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>stats_is_filtered</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATS_DATE(<span class=SpellE>st.</span>[<span
+class=SpellE>object_id</span>],<span class=SpellE>st.</span>[<span
+class=SpellE>stats_id</span>])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>stats_last_updated_date</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; co.[</span><span style='font-family:"Courier New";
+color:#DCC6E0'>name</span><span style='font-family:"Courier New";color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>stats_column_name</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ty.[</span><span style='font-family:"Courier New";
+color:#DCC6E0'>name</span><span style='font-family:"Courier New";color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_type</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; co.[<span class=SpellE>max_length</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_max_length</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; co.[</span><span style='font-family:"Courier New";
+color:#DCC6E0'>precision</span><span style='font-family:"Courier New";
+color:#F8F8F2'>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_precision</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 co.[scale]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_scale</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; co.[<span
-class=SpellE>is_nullable</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_is_nullable</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp; co.[<span
-class=SpellE>collation_name</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS[<span class=SpellE>column_collation_name</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS <span class=SpellE>two_part_name</span><o:p></o:p></span></p>
-
-<p style='margin:0in'><span class=GramE><span style='font-size:11.0pt;
-font-family:"Arial",sans-serif'>,&nbsp;&nbsp;&nbsp;</span></span><span
-style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;
-QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS <span class=SpellE>three_part_name</span><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>FROM
-<span class=SpellE><span class=GramE>sys.objects</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS <span class=SpellE>ob</span><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.stats</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS <span class=SpellE>st</span> ON ob.[<span class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-= <span class=SpellE>st.</span>[<span class=SpellE>object_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.stats</span>_columns</span>&nbsp;&nbsp;
-AS <span class=SpellE>sc</span> ON <span class=SpellE>st.</span>[<span
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_scale</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; co.[<span class=SpellE>is_nullable</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_is_nullable</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; co.[<span class=SpellE>collation_name</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'>[<span class=SpellE>column_collation_name</span>]<br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:"Courier New";
+color:#DCC6E0'>QUOTENAME</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(sm.[</span><span style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>])+</span><span
+style='font-family:"Courier New";color:#ABE338'>'.'</span><span
+style='font-family:"Courier New";color:#F8F8F2'>+</span><span style='font-family:
+"Courier New";color:#DCC6E0'>QUOTENAME</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(tb.[</span><span style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>two_part_name</span><br>
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:"Courier New";
+color:#DCC6E0'>QUOTENAME</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(DB_NAME())+</span><span style='font-family:"Courier New";
+color:#ABE338'>'.'</span><span style='font-family:"Courier New";color:#F8F8F2'>+</span><span
+style='font-family:"Courier New";color:#DCC6E0'>QUOTENAME</span><span
+style='font-family:"Courier New";color:#F8F8F2'>(sm.[</span><span
+style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>])+</span><span
+style='font-family:"Courier New";color:#ABE338'>'.'</span><span
+style='font-family:"Courier New";color:#F8F8F2'>+</span><span style='font-family:
+"Courier New";color:#DCC6E0'>QUOTENAME</span><span style='font-family:"Courier New";
+color:#F8F8F2'>(tb.[</span><span style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>three_part_name</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.objects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>ob</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.stats</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>st</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> ob.[<span class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= <span class=SpellE>st.</span>[<span class=SpellE>object_id</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.stats_columns</span>&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sc</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>st.</span>[<span
 class=SpellE>stats_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = sc.[<span
-class=SpellE>stats_id</span>]<o:p></o:p></span></p>
+class=SpellE>stats_id</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AND</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>st.</span>[<span
+class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = sc.[<span
+class=SpellE>object_id</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.columns</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> co </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> sc.[<span class=SpellE>column_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= co.[<span class=SpellE>column_id</span>]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AND</span><span
+style='font-family:"Courier New";color:#F8F8F2'> sc.[<span class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= co.[<span class=SpellE>object_id</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.types</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> ty </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> co.[<span class=SpellE>user_type_id</span>]&nbsp;&nbsp;
+= ty.[<span class=SpellE>user_type_id</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.tables</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> tb </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> co.[<span class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= tb.[<span class=SpellE>object_id</span>]<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>JOIN</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sys.schemas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:"Courier New";color:#DCC6E0'>AS</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>sm</span> </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span><span
+style='font-family:"Courier New";color:#F8F8F2'> tb.[<span class=SpellE>schema_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= sm.[<span class=SpellE>schema_id</span>]</span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AND <span class=SpellE>st.</span>[<span class=SpellE>object_<span class=GramE>id</span></span><span
-class=GramE>]&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp; = sc.[<span class=SpellE>object_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.columns</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS co ON sc.[<span class=SpellE>column_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-= co.[<span class=SpellE>column_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AND sc.[<span class=SpellE>object_<span class=GramE>id</span></span><span
-class=GramE>]&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp; = co.[<span class=SpellE>object_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.types</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS ty ON co.[<span class=SpellE>user_type_id</span>]&nbsp;&nbsp; = ty.[<span
-class=SpellE>user_type_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.tables</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS tb ON co.[<span class=SpellE>object_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-= tb.[<span class=SpellE>object_id</span>]<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>JOIN
-<span class=SpellE><span class=GramE>sys.schemas</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-AS <span class=SpellE>sm</span> ON tb.[<span class=SpellE>schema_id</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-= sm.[<span class=SpellE>schema_id</span>]<o:p></o:p></span></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;<o:p></o:p></span></p>
 
@@ -950,9 +953,10 @@ confirm the rows and sampled rows, steps, update time etc. <o:p></o:p></span></p
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;<o:p></o:p></span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>DBCC
-SHOW_STATISTICS([&lt;<span class=SpellE>schema_name</span><span class=GramE>&gt;.&lt;</span><span
-class=SpellE>table_name</span>&gt;],&lt;<span class=SpellE>stats_name</span>&gt;)<o:p></o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#F8F8F2'>DBCC SHOW_STATISTICS([&lt;<span class=SpellE>schema_name</span><span
+class=GramE>&gt;.&lt;</span><span class=SpellE>table_name</span>&gt;],&lt;<span
+class=SpellE>stats_name</span>&gt;)</span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
 mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
@@ -1007,24 +1011,28 @@ an extra aid, we usually recommend having auto create statistics enabled. <o:p><
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>You
 can check to confirm if it is created on your system with the below: <o:p></o:p></span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>SELECT
-name, <span class=SpellE>is_auto_create_stats_on</span><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>FROM
-<span class=SpellE><span class=GramE>sys.databases</span></span>;<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;<o:p></o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#DCC6E0'>SELECT</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>name</span><span
+style='font-family:"Courier New";color:#F8F8F2'>, <span class=SpellE>is_auto_create_stats_on</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>FROM</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE><span
+class=GramE>sys.databases</span></span>;</span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>&nbsp;<o:p></o:p></span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>To
 enable the <span class=GramE>setting</span> you can invoke the following: <o:p></o:p></span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>ALTER
-DATABASE <span class=SpellE>dbnamehere</span><o:p></o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#DCC6E0'>ALTER</span><span style='font-family:"Courier New";color:#F8F8F2'>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>DATABASE</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>dbnamehere</span><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>SET</span><span
+style='font-family:"Courier New";color:#F8F8F2'> AUTO_CREATE_STATISTICS </span><span
+style='font-family:"Courier New";color:#DCC6E0'>ON</span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>SET
-AUTO_CREATE_STATISTICS ON<o:p></o:p></span></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
