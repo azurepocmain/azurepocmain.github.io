@@ -1,13 +1,11 @@
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
 xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
 xmlns="http://www.w3.org/TR/REC-html40">
-<link rel="icon" href="Azure-Synapse-Analytics.svg" type="image/x-icon" >
 
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 15">
 <meta name=Originator content="Microsoft Word 15">
@@ -28,15 +26,15 @@ w\:* {behavior:url(#default#VML);}
   <o:Template>Normal</o:Template>
   <o:LastAuthor>Victor Adeyanju</o:LastAuthor>
   <o:Revision>2</o:Revision>
-  <o:TotalTime>59</o:TotalTime>
-  <o:Created>2022-02-09T03:39:00Z</o:Created>
-  <o:LastSaved>2022-02-09T03:39:00Z</o:LastSaved>
+  <o:TotalTime>56</o:TotalTime>
+  <o:Created>2022-10-22T21:48:00Z</o:Created>
+  <o:LastSaved>2022-10-22T21:48:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
-  <o:Words>347</o:Words>
-  <o:Characters>1982</o:Characters>
-  <o:Lines>16</o:Lines>
+  <o:Words>360</o:Words>
+  <o:Characters>2054</o:Characters>
+  <o:Lines>17</o:Lines>
   <o:Paragraphs>4</o:Paragraphs>
-  <o:CharactersWithSpaces>2325</o:CharactersWithSpaces>
+  <o:CharactersWithSpaces>2410</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
@@ -675,7 +673,7 @@ href="Getting%20Actual%20Distributed%20Query%20Plan_files/colorschememapping.xml
 	mso-font-charset:0;
 	mso-generic-font-family:roman;
 	mso-font-pitch:variable;
-	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+	mso-font-signature:3 0 0 0 1 0;}
 @font-face
 	{font-family:Calibri;
 	panose-1:2 15 5 2 2 2 4 3 2 4;
@@ -821,33 +819,35 @@ set caching to ensure query is not returned from the cache. <o:p></o:p></span></
 <p class=MsoNormal><span style='font-family:"Arial",sans-serif'>Most
 importantly, set query diagnostics on. <o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='font-family:"Arial",sans-serif'>Please note
-that this is the query's actual execution plan, not estimated. Therefore, the
-query will <span class=GramE>actually run</span> on the system and provide the
-actual plan. This is a very resource intensive process, please consider only
-running in Dev environments where the instance can be paused and restarted if sessions
+<p class=MsoNormal><span style='font-family:"Arial",sans-serif'>Please note that
+this is the query’s actual execution plan, not estimated. Therefore, the query
+will <span class=GramE>actually run</span> on the system and provide the actual
+plan. This is a very resource intensive process, please consider only running
+in Dev environments where the instance can be paused and restarted if sessions
 are not able to be killed and rolled back quick enough. <o:p></o:p></span></p>
 
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif;
-background:yellow;mso-highlight:yellow'>SET RESULT_SET_CACHING OFF<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif;
-background:yellow;mso-highlight:yellow'>set <span class=SpellE>query_diagnostics</span>
-on</span><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>select
-* from synapseworkflow1 syn1<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>join
-synapseworkflow2 syn2<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>on
-syn1.ID= syn2.FID<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>and
-where syn2.JobTitle =<span class=SpellE>'dataengineer'</span><span class=GramE>;</span><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='background:#2B2B2B'><span style='font-family:"Courier New";
+color:#DCC6E0'>SET</span><span style='font-family:"Courier New";color:#F8F8F2'>
+RESULT_SET_CACHING </span><span style='font-family:"Courier New";color:#DCC6E0'>OFF
+</span><span style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>set</span><span
+style='font-family:"Courier New";color:#F8F8F2'> <span class=SpellE>query_diagnostics</span>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>on<span
+style='mso-spacerun:yes'>   </span>--Setting that allows execution plan</span><span
+style='font-family:"Courier New";color:#F8F8F2'><br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>select</span><span
+style='font-family:"Courier New";color:#F8F8F2'> * </span><span
+style='font-family:"Courier New";color:#DCC6E0'>from</span><span
+style='font-family:"Courier New";color:#F8F8F2'> synapseworkflow1 syn1<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>join</span><span
+style='font-family:"Courier New";color:#F8F8F2'> synapseworkflow2 syn2<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>on</span><span
+style='font-family:"Courier New";color:#F8F8F2'> syn1.ID= syn2.FID<br>
+</span><span style='font-family:"Courier New";color:#DCC6E0'>and</span><span
+style='font-family:"Courier New";color:#F8F8F2'> </span><span style='font-family:
+"Courier New";color:#DCC6E0'>where</span><span style='font-family:"Courier New";
+color:#F8F8F2'> syn2.JobTitle =’<span class=SpellE>dataengineer</span><span
+class=GramE>’;</span></span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
 
@@ -856,8 +856,11 @@ where syn2.JobTitle =<span class=SpellE>'dataengineer'</span><span class=GramE>;
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>The
 above will return the below output. This will include the results and actual compute
-node text and compute node plan. Remember, Synapse breaks down queries into smaller
-queries in 60 data distributions. <o:p></o:p></span></p>
+node text and compute node plan. Remember, Synapse breaks down queries into
+smaller queries in 60 data distributions. <o:p></o:p></span></p>
+
+<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'>There
+will be two sets of outputs total of 120. <o:p></o:p></span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif;
 mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
@@ -901,20 +904,16 @@ plan in SSMS. You will see the actual distributed compute node plan <span
 class=GramE>similar to</span> the below. <o:p></o:p></span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif;
-mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1026"
- type="#_x0000_t75" alt="A picture containing graphical user interface&#10;&#10;Description automatically generated"
- style='width:611.25pt;height:227.25pt;visibility:visible;mso-wrap-style:square'>
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1026"
+ type="#_x0000_t75" alt="Graphical user interface, application&#10;&#10;Description automatically generated"
+ style='width:456pt;height:102pt;visibility:visible;mso-wrap-style:square'>
  <v:imagedata src="Getting%20Actual%20Distributed%20Query%20Plan_files/image003.png"
-  o:title="A picture containing graphical user interface&#10;&#10;Description automatically generated"/>
-</v:shape><![endif]--><![if !vml]><img width=815 height=303
-src="Getting%20Actual%20Distributed%20Query%20Plan_files/image004.png"
-alt="A picture containing graphical user interface&#10;&#10;Description automatically generated"
-v:shapes="Picture_x0020_2"><![endif]></span><span style='font-size:11.0pt;
+  o:title="Graphical user interface, application&#10;&#10;Description automatically generated"/>
+</v:shape><![endif]--><![if !vml]><img width=608 height=136
+src="Getting%20Actual%20Distributed%20Query%20Plan_files/image003.png"
+alt="Graphical user interface, application&#10;&#10;Description automatically generated"
+v:shapes="Picture_x0020_3"><![endif]></span><span style='font-size:11.0pt;
 font-family:"Arial",sans-serif'><o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
 
 <p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
 
@@ -934,15 +933,14 @@ location to save file. Please note that all the parameters in the <span
 class=SpellE>sqlcmd</span> command will be required to successfully execute the
 below. <o:p></o:p></span></p>
 
-<p class=MsoNormal><span class=SpellE><span style='font-family:"Arial",sans-serif'>sqlcmd</span></span><span
-style='font-family:"Arial",sans-serif'> -S &lt;<span class=SpellE>synpasenamehere</span><span
+<p class=MsoNormal style='background:#2B2B2B'><span class=SpellE><span
+style='font-family:"Courier New";color:#F8F8F2'>sqlcmd</span></span><span
+style='font-family:"Courier New";color:#F8F8F2'> -S &lt;<span class=SpellE>synpasenamehere</span><span
 class=GramE>&gt;.database.windows.net</span> -U &lt;<span class=SpellE>usernamehere</span>&gt;
 -d &lt;<span class=SpellE>database_namehere</span>&gt; -I -<span class=SpellE>i</span>
 &quot;C:\Users\victor\Documents\pathnamerhere\inputquerydiag.sql&quot; -o
-&quot;C:\Users\ victor\Documents\ <span class=SpellE>pathnamerhere</span> \synapseoutputfile.txt&quot;
--y0<o:p></o:p></span></p>
-
-<p style='margin:0in'><span style='font-size:11.0pt;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+&quot;C:\Users\ victor\Documents\ <span class=SpellE>pathnamerhere</span>
+\synapseoutputfile.txt&quot; -y0</span></p>
 
 <p class=MsoNormal><b><i><u><span style='font-family:"Arial",sans-serif'>Step2:
 <o:p></o:p></span></u></i></b></p>
@@ -955,10 +953,10 @@ the above query: <o:p></o:p></span></p>
 mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4" o:spid="_x0000_i1025"
  type="#_x0000_t75" alt="Graphical user interface, text, application&#10;&#10;Description automatically generated"
  style='width:375.75pt;height:124.5pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="Getting%20Actual%20Distributed%20Query%20Plan_files/image005.png"
+ <v:imagedata src="Getting%20Actual%20Distributed%20Query%20Plan_files/image004.png"
   o:title="Graphical user interface, text, application&#10;&#10;Description automatically generated"/>
 </v:shape><![endif]--><![if !vml]><img width=501 height=166
-src="Getting%20Actual%20Distributed%20Query%20Plan_files/image006.png"
+src="Getting%20Actual%20Distributed%20Query%20Plan_files/image005.png"
 alt="Graphical user interface, text, application&#10;&#10;Description automatically generated"
 v:shapes="Picture_x0020_4"><![endif]></span><span style='font-size:11.0pt;
 font-family:"Arial",sans-serif'><o:p></o:p></span></p>
